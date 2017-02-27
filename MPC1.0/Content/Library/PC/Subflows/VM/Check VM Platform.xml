@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="ca1aa266-5e00-4290-b117-9a18c6159984">
+  <descriptionCdata><![CDATA[ca1aa266-5e00-4290-b117-9a18c6159984.description=decide if it's vCenter (default) or SCVMM.\n\nvCenter has been set as default so that we can avoid any missed setting of the vmmp.type variable. We may improve later. 
+]]></descriptionCdata>
+  <annotation>ca1aa266-5e00-4290-b117-9a18c6159984.description</annotation>
+  <name>Check VM Platform</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="6e64b6d2-7bf6-4721-832e-16c39fbaa0cd">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_1</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>vCenter</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="8dd31677-b5ca-4aa0-91d1-1d61712b9e2c">
+      <annotation></annotation>
+      <name>SCVMM</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="232af23f-ce1d-4692-9b10-ad6f73b0c6bc">
+          <annotation></annotation>
+          <name>Field_1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="fb8289f3-950c-40cf-bdce-780c8ac7b520">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>SCVMM</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="42ad98c1-fb90-4a25-a16f-49128dea5e14">
+      <annotation></annotation>
+      <name>vCenter</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="14d4dabb-70c1-4f3f-80e7-3fe7935456f7">
+          <annotation></annotation>
+          <name>Field_1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="730b21fe-df41-4ebe-90c1-d3b0b6736da1">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>vCenter</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="31a994e7-474a-4b33-8d74-daa54c6e6c4b">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions>
+    <expression id="dfcac3da-4880-4711-9272-ce162982e579">
+      <annotation></annotation>
+      <name>vmmp.type</name>
+      <fieldName>Field_1</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters/>
+    </expression>
+  </availableResultExpressions>
+  <iconSpec id="1e8cb14c-f9ec-4d96-a29b-37463972fe42">
+    <baseIcon>webservice.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <plugin>
+    <groupId>com.hp.oo</groupId>
+    <artifactId>oo-base-plugin</artifactId>
+    <version>1.4.3</version>
+    <actionName>noOp</actionName>
+  </plugin>
+  <fieldValues/>
+</operation>

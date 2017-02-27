@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="2280dc15-cb78-41aa-9d55-c112bec0b309">
+  <descriptionCdata><![CDATA[2280dc15-cb78-41aa-9d55-c112bec0b309.d269c085-23ed-478e-82f9-fedb9d01e3b6.description=<pre>\nThis operation does not do anything. It can be used to filter flow variables by defining them as inputs and filtering them in the Results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. It contains the value of  "field1" as it was specified at input or when filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+2280dc15-cb78-41aa-9d55-c112bec0b309.ea5b076a-570f-4843-ac73-e9d954a9bd1b.description=<pre>\nThe operation invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The template names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\nValue format\: A list of elements separated by the new line delimiter. Eache element hes the format\: <name>\=<new name>.\nExample\: A line in the "inputMap" could be\: "Request|Details|0|Input|x\=input0.x"\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the "username" and "password" input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of "WSSecurityKeystore".\n    WSSecurityKeystorePassword - The password for "WSSecurityKeystore".\n    contentType - Value to be used in the Content-Type HTTP header.\nDefault value\: text/xml\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service.\nValue format\: For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A "socketTimeout" value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named "rawXMLRequest" is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResults\:\n    returnCode - This is the primary output. It contains the value 0 if the operation successfully completes and the value -1 otherwise.\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_<headername>, where <headername> is the name of an html header, then that html header will be set to the given value in the HTTP request.\n4.This operation will not allow connection through secure transport layers below TLS 1.0.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>tp</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="38b55970-02e9-4b05-9a04-d163d0dbe56d">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="cc918213-4154-464e-a52b-be3b2365dd34">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="12b82661-8eaa-46c4-90a0-8d66ecea0f87">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="3c489e0a-e6e7-4550-b189-ae915cfc3212">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="d269c085-23ed-478e-82f9-fedb9d01e3b6">
+      <annotation>2280dc15-cb78-41aa-9d55-c112bec0b309.d269c085-23ed-478e-82f9-fedb9d01e3b6.description</annotation>
+      <name>Format JSON for API Call</name>
+      <bounds>
+        <x>24.0</x>
+        <y>114.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="5739c960-d124-470c-b6f1-b0cd78743bc1">
+        <baseIcon>display_report.png</baseIcon>
+        <basePath>Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="9eacfca2-ae7f-4848-b304-aaa0a829296b">
+          <annotation></annotation>
+          <fromContextKey>esl_ciinfo</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{
+	&quot;Attributes&quot;: {
+		&quot;SystemID&quot;: &quot;&quot;,
+		&quot;PrimaryName&quot;: &quot;sessericlu0022&quot;,
+		&quot;ArpaDomain&quot;: &quot;ss.sw.ericsson.se&quot;,
+		&quot;SystemStatus&quot;: &quot;in production&quot;,
+		&quot;SystemType&quot;: &quot;cluster&quot;,
+		&quot;Environment&quot;: &quot;Production&quot;,
+		&quot;Category&quot;: &quot;Trade&quot;,
+		&quot;OSClass&quot;: &quot;Windows&quot;,
+		&quot;OSVersion&quot;: &quot;Windows 2008 Enterprise R2 x64&quot;,
+		&quot;ManagementRegion&quot;: &quot;EMEA&quot;,
+		&quot;SecurityClass&quot;: &quot;baseline&quot;,
+		&quot;Impact&quot;: &quot;1 - Enterprise&quot;,
+		&quot;ServiceLevel&quot;: &quot;high availability&quot;,
+		&quot;Availability&quot;: &quot;99.0&quot;,
+		&quot;InitialAssignmentGroup&quot;: &quot;W-INCFLS-GDO-GCM-WIN&quot;,
+		&quot;ImpactDescription&quot;: &quot;&quot;,
+		&quot;IsVirtual&quot;: &quot;yes&quot;,
+		&quot;BusinessCriticality&quot;: &quot;&quot;,
+		&quot;AuditVal&quot;: &quot;&quot;,
+		&quot;TimeZone&quot;: &quot;(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna&quot;,
+		&quot;Coverage&quot;: &quot;24x7 (00:00-24:00 Mon-Sun)&quot;,
+		&quot;Manufacturer&quot;: &quot;Hewlett Packard&quot;,
+		&quot;SerialNumber&quot;: &quot;&quot;,
+		&quot;SystemModel&quot;: &quot;Virtual server&quot;,
+		&quot;NoOfLogicalCPU&quot;: &quot;&quot;,
+		&quot;NoOfPhysicalCPU&quot;: &quot;&quot;,
+		&quot;InstalledMem&quot;: &quot;&quot;,
+		&quot;FloorSpace&quot;: &quot;DETPFK&quot;,
+		&quot;AssetNumber&quot;: &quot;&quot;,
+		&quot;AssetOwner&quot;: &quot;HP&quot;,			
+		&quot;ClusterArchitecture&quot;: &quot;Heartbeat&quot;,			
+		&quot;ClusterTechnology&quot;: &quot;Microsoft Cluster&quot;,			
+		&quot;VirtualizationRole&quot;: &quot;&quot;,
+		&quot;ContractServiceLevel&quot;: &quot;&quot;,
+		&quot;CustomerNotes&quot;: &quot;&quot;,
+		&quot;AssetNotes&quot;: &quot;&quot;,
+		&quot;Billable&quot;: &quot;&quot;,
+		&quot;VirtualizationTechnology&quot;: &quot;Cloud&quot;,
+		&quot;IRRules&quot;: &quot;no Incident Reporting&quot;,
+		&quot;OSLanguage&quot;: &quot;English&quot;,
+		&quot;PrefLanguage&quot;: &quot;English&quot;,
+		&quot;ProductNumber&quot;: &quot;Virtual server&quot;,
+		&quot;ERMSlave&quot;: &quot;&quot;,
+		&quot;NewSystemName&quot;: &quot;&quot;,
+		&quot;SourceID&quot;: &quot;&quot;,
+		&quot;SourceTool&quot;: &quot;&quot;,
+		&quot;RTPADate&quot;: &quot;&quot;,
+		&quot;RTPAID&quot;: &quot;&quot;,
+		&quot;ReleaseStatus&quot;: &quot;&quot;,
+		&quot;InventoryID&quot;: &quot;&quot;
+	},
+	&quot;DataCenter&quot;: {
+		&quot;DCID&quot;: &quot;1041166&quot;,
+		&quot;DCName&quot;: &quot;EMEA-DE-Frankfurt-eshelter-B&quot;,
+		&quot;DCCountry&quot;: &quot;Germany&quot;,
+		&quot;DCTown&quot;: &quot;Frankfurt&quot;,
+		&quot;DCPostcode&quot;: &quot;60489&quot;,
+		&quot;DCAddress&quot;: &quot;e-shelter GmbH&quot;
+	},
+	&quot;SystemUsages&quot;: [{
+		&quot;UsageName&quot;: &quot;Business Application&quot;,
+		&quot;UsageNote&quot;: &quot;ITAR12345678&quot;,
+		&quot;ACTION&quot;: &quot;create&quot;
+	}],
+	&quot;SystemRoles&quot;: [{
+		&quot;RoleName&quot;: &quot;Technical Owner Backup&quot;,
+		&quot;ContactName&quot;: &quot;Tze Chun Ooi&quot;,
+		&quot;ContactMail&quot;: &quot;tze-chun.ooi@hpe.com&quot;,
+		&quot;PhoneNotification&quot;: &quot;0&quot;,
+		&quot;EmailNotification&quot;: &quot;1&quot;,
+		&quot;PatchNotification&quot;: &quot;0&quot;,
+		&quot;RoleComment&quot;: &quot;Wintel Platform only&quot;
+	}, {
+		&quot;RoleName&quot;: &quot;Downtime Contact&quot;,
+		&quot;ContactName&quot;: &quot;Kim Siang Lim&quot;,
+		&quot;ContactMail&quot;: &quot;kim-siang.lim@hpe.com&quot;,
+		&quot;PhoneNotification&quot;: &quot;0&quot;,
+		&quot;EmailNotification&quot;: &quot;1&quot;,
+		&quot;PatchNotification&quot;: &quot;0&quot;
+	}, {
+		&quot;RoleName&quot;: &quot;Technical Owner&quot;,
+		&quot;ContactName&quot;: &quot;Mona Aslinda Taslim&quot;,
+		&quot;ContactMail&quot;: &quot;mona-aslinda.taslim@hpe.com&quot;,
+		&quot;PhoneNotification&quot;: &quot;0&quot;,
+		&quot;EmailNotification&quot;: &quot;1&quot;,
+		&quot;PatchNotification&quot;: &quot;0&quot;
+	}],
+	&quot;IPs&quot;: [{
+		&quot;IPID&quot;: &quot;118056190&quot;,
+		&quot;IPType&quot;: &quot;Primary IP&quot;,
+		&quot;IPAddress&quot;: &quot;128.87.226.207&quot;,
+		&quot;IPName&quot;: &quot;&quot;,
+		&quot;IPMACAddress&quot;: &quot;&quot;,
+		&quot;IPSubnet&quot;: &quot;&quot;,
+		&quot;IPSubnetMask&quot;: &quot;&quot;,
+		&quot;IPLanSpeed&quot;: &quot;&quot;,
+		&quot;IPDuplexMode&quot;: &quot;&quot;,
+		&quot;IPSwitchName&quot;: &quot;&quot;,
+		&quot;IPPort&quot;: &quot;&quot;,
+		&quot;IPComment&quot;: &quot;&quot;,
+		&quot;ACTION&quot;: &quot;create&quot;
+	}],
+	&quot;Consoles&quot;: [],
+	&quot;Backups&quot;: [],
+	&quot;CIGroups&quot;: [],
+	&quot;Instances&quot;: [{
+		&quot;InstanceID&quot;: &quot;120938508&quot;,
+		&quot;SolutionName&quot;: &quot;microsoft cluster&quot;,
+		&quot;SolutionCategory&quot;: &quot;os&quot;,
+		&quot;InstanceName&quot;: &quot;&quot;,
+		&quot;InstanceStatus&quot;: &quot;move to production&quot;,
+		&quot;InstanceEnvironment&quot;: &quot;&quot;,
+		&quot;InstanceImpact&quot;: &quot;1 - Enterprise&quot;,
+		&quot;InstanceServiceLevel&quot;: &quot;not supported&quot;,
+		&quot;InstanceAvailability&quot;: &quot;99.0&quot;,
+		&quot;InstanceTimezone&quot;: &quot;(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna&quot;,
+		&quot;InstanceCoverage&quot;: &quot;11x5 (07:00-18:00 Mon-Fri)&quot;,
+		&quot;InstanceVersion&quot;: &quot;6.1.7601.18933&quot;,
+		&quot;InstanceDescription&quot;: &quot;&quot;,
+		&quot;InstanceAssignmentGroup&quot;: &quot;&quot;,
+		&quot;SourceID&quot;: &quot;&quot;,
+		&quot;SourceTool&quot;: &quot;&quot;
+	}],
+	&quot;Customers&quot;: [],
+	&quot;MaintContracts&quot;: [{				
+	&quot;ContractName&quot;: &quot;Hands and Eyes&quot;,			
+	&quot;ContractStart&quot;: &quot;&quot;,			
+	&quot;ContractEnd&quot;: &quot;&quot;,			
+	&quot;CRCName&quot;: &quot;&quot;,			
+	&quot;SystemHandle&quot;: &quot;&quot;,			
+	&quot;ContractInfo&quot;: &quot;&quot;,			
+	&quot;ACTION&quot;: &quot;create&quot;			
+}, {				
+	&quot;ContractName&quot;: &quot;GCM Global Call Management&quot;,			
+	&quot;ContractStart&quot;: &quot;&quot;,			
+	&quot;ContractEnd&quot;: &quot;&quot;,			
+	&quot;CRCName&quot;: &quot;&quot;,			
+	&quot;SystemHandle&quot;: &quot;&quot;,			
+	&quot;ContractInfo&quot;: &quot;&quot;,			
+	&quot;ACTION&quot;: &quot;create&quot;			
+}, {				
+	&quot;ContractName&quot;: &quot;Ericsson Site Contacts&quot;,			
+	&quot;ContractStart&quot;: &quot;&quot;,			
+	&quot;ContractEnd&quot;: &quot;&quot;,			
+	&quot;CRCName&quot;: &quot;&quot;,			
+	&quot;SystemHandle&quot;: &quot;&quot;,			
+	&quot;ContractInfo&quot;: &quot;&quot;,			
+	&quot;ACTION&quot;: &quot;create&quot;			
+}],				
+	&quot;ParentSystems&quot;: [],
+	&quot;ChildSystems&quot;: [],
+	&quot;Links&quot;: [],
+	&quot;EtPs&quot;: [],
+	&quot;KPEs&quot;: [],
+	&quot;ERMGroups&quot;: [],
+	&quot;Params&quot;: [{					
+	&quot;ParCd&quot;: &quot;ASSET_OWNER&quot;,				
+	&quot;SrsValue&quot;: &quot;HP&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;CLUSTER_ARCH&quot;,				
+	&quot;SrsValue&quot;: &quot;Heartbeat&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;CLUSTER_TECH&quot;,				
+	&quot;SrsValue&quot;: &quot;Microsoft Cluster&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;COMM_CLASS&quot;,				
+	&quot;SrsValue&quot;: &quot;Application&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;CUST_SL&quot;,				
+	&quot;SrsValue&quot;: &quot;SL 3&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;FLOOR_SPACE&quot;,				
+	&quot;SrsValue&quot;: &quot;SETPSS&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;IR_RULES&quot;,				
+	&quot;SrsValue&quot;: &quot;no Incident Reporting&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;MON_LEVEL&quot;,				
+	&quot;SrsValue&quot;: &quot;Premium&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;ORDER_NUMBER&quot;,				
+	&quot;SrsValue&quot;: &quot;MPC2c94409e56c24f5e01571ed635575cd8&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;OS_LANG&quot;,				
+	&quot;SrsValue&quot;: &quot;English&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;PREF_LANGUAGE&quot;,				
+	&quot;SrsValue&quot;: &quot;english&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;REMEDY_GROUP&quot;,				
+	&quot;SrsValue&quot;: &quot;HP-Platform-WIN-L1&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}, {					
+	&quot;ParCd&quot;: &quot;SERVER_MAPPING&quot;,				
+	&quot;SrsValue&quot;: &quot;Server&quot;,				
+	&quot;ACTION&quot;: &quot;create&quot;				
+}],					
+&quot;OVOCard&quot;: [],					
+&quot;DiskVolumes&quot;: []					
+}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b0586abc-a090-4310-a4be-71f882f38c5b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field2</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="21c5b870-32a8-4aea-ac72-6db9f20ca60f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field3</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7b840fce-8306-4afe-bab5-689171155858">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field4</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="f721e7ad-9bf0-4344-b2c2-e5da6982140e">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>ea5b076a-570f-4843-ac73-e9d954a9bd1b</refId>
+          </destination>
+          <source>
+            <refId>d269c085-23ed-478e-82f9-fedb9d01e3b6</refId>
+          </source>
+          <positions>
+            <point>
+              <x>74.0</x>
+              <y>148.0</y>
+            </point>
+            <point>
+              <x>250.0</x>
+              <y>283.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="00440e45-eb94-4e46-bf5c-3b14b43ebb7f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>esl_ciinfo</contextKey>
+          <expression id="2beee7cc-a6d1-42dc-b610-e2b2a2cfb8c6">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <concat id="1dba635a-4a9b-45d7-bf03-14cc6a0d8ff6">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>&lt;![CDATA[</text>
+                <position>BEGINNING</position>
+              </concat>
+              <concat id="b41c01ef-63df-4e0f-9030-58565db44787">
+                <annotation></annotation>
+                <name>Format</name>
+                <text>]]&gt;</text>
+                <position>END</position>
+              </concat>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="ea5b076a-570f-4843-ac73-e9d954a9bd1b">
+      <annotation>2280dc15-cb78-41aa-9d55-c112bec0b309.ea5b076a-570f-4843-ac73-e9d954a9bd1b.description</annotation>
+      <name>Call ESL API to CreateCI</name>
+      <bounds>
+        <x>210.0</x>
+        <y>164.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="2ecc42db-5622-4287-b1d6-79073d9b155f">
+        <baseIcon>generic_server_plain.png</baseIcon>
+        <basePath>Servers/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="cf84799d-9b13-4445-b75b-a2f570a81566">
+            <baseIcon>remote.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="929fe577-ab60-484e-8dfa-38d2a2a06c0f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:SOAP-ENC=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;SOAP-ENV:Header&gt;   
+        &lt;m:Username xmlns:m=&quot;http://www.hp.com&quot;&gt;${username}&lt;/m:Username&gt;
+        &lt;m:Password xmlns:m=&quot;http://www.hp.com&quot;&gt;${password}&lt;/m:Password&gt;
+    &lt;/SOAP-ENV:Header&gt;
+    &lt;SOAP-ENV:Body&gt;
+        &lt;m:UpdateCI xmlns:m=&quot;http://www.hp.com&quot;&gt;
+            &lt;CIType xsi:type=&quot;xsd:string&quot;&gt;Cluster Node&lt;/CIType&gt;
+            &lt;CIInfo xsi:type=&quot;xsd:string&quot;&gt;${esl_ciinfo}&lt;/CIInfo&gt;
+            &lt;OperType xsi:type=&quot;xsd:string&quot;&gt;create&lt;/OperType &gt;
+        &lt;/m:UpdateCI&gt;
+    &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="af86e26f-146b-43e9-bf43-b1df2c5ef3e8">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UpdateCI|OperPass=username
+UpdateCI|OperUser=password</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="68bdceda-fd0f-4f9b-86ed-35044e2b001f">
+          <annotation></annotation>
+          <fromContextKey>eslHost</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${esl/pc.esl.webservice.address1}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="63d1df61-0d36-406b-b7ff-72a1304a30e0">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6bff3b6f-29d5-437f-93cf-ffd3bc1e637e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f9710e6a-53a1-4e5d-9690-c54d5c282cd8">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>esl_ciinfo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${esl_ciinfo}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bbf2067e-2d03-44c9-a866-b82f12494d46">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="93690702-f7d9-4b9c-b71d-d85b5198f117">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="980c260b-5bc9-43c1-a4ac-4be9c85ea72e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7bf0ca3d-5811-4b9b-bd7d-47c3f93b038b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b28f69b0-e501-42f8-a3e1-472540a27a60">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9ca9b2f9-4f86-4fc7-b8f7-bd66b7c90249">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="41f109c0-cecd-4302-82f7-3700c3b94c4b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b5948403-de2c-4dc1-9f05-96e8f534c997">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <identityBinding id="624d717f-d7e9-47e5-be57-1ac2623a51f4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <link>
+            <refId>f9d48e5e-7b97-4970-bdf4-9b59d425443a</refId>
+            <refName>pc.esl.webservice</refName>
+          </link>
+          <identityAttribute>USERNAME</identityAttribute>
+        </identityBinding>
+        <identityBinding id="66ace9c2-bf86-432c-a42c-fb4ea5871a3a">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <link>
+            <refId>f9d48e5e-7b97-4970-bdf4-9b59d425443a</refId>
+            <refName>pc.esl.webservice</refName>
+          </link>
+          <identityAttribute>PASSWORD</identityAttribute>
+        </identityBinding>
+        <staticBinding id="8ada69b7-d3b1-4cf1-94c9-9dffba923b7a">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="afb3d18f-b344-4730-9045-7aafd894cfb9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9a850228-2c8e-4fcc-bf83-199608052c59">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="59bef114-ccdd-42d1-bc89-7a2e83ea8891">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${esl/pc.esl.webservice.timeout}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="34392ed7-8622-4615-baa7-e6025431af38">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b283ee27-fe29-4e31-b8b0-042be6517a85">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8f39c6ce-2063-44a3-8fde-68957fe35d96">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3ddddaee-6b46-4ed6-994c-3057c90d71df">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4d7bbc8d-0cf2-4191-bcac-557100753308">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f59ede2a-93e5-47ae-bfe1-3cf5d314f516">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6847abf4-9c1e-45f8-9f04-f35533b4eb09">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="75c0836b-779d-495d-8117-631789eace7c">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9307133a-7f6f-4ca4-a2f5-da6376075fb1">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="60a67ba4-cdaf-416d-95ce-61f04478c463">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>be0692a0-465e-4972-8545-43b7c87fc0de</refId>
+          </destination>
+          <source>
+            <refId>ea5b076a-570f-4843-ac73-e9d954a9bd1b</refId>
+          </source>
+          <positions>
+            <point>
+              <x>250.0</x>
+              <y>283.0</y>
+            </point>
+            <point>
+              <x>619.0</x>
+              <y>102.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="b2b59921-897c-4e62-ac0d-9fea36a6470b">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2aabf334-8bd6-40e1-9d7f-9499fef3dbbe</refId>
+          </destination>
+          <source>
+            <refId>ea5b076a-570f-4843-ac73-e9d954a9bd1b</refId>
+          </source>
+          <positions>
+            <point>
+              <x>250.0</x>
+              <y>283.0</y>
+            </point>
+            <point>
+              <x>319.0</x>
+              <y>52.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="cdf74313-f4d7-462a-be86-c8701cf46281">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>SystemID</contextKey>
+          <expression id="3c98abca-ef14-475c-9bb2-3420376294cb">
+            <annotation></annotation>
+            <name>Result Field: document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <stripTrailingFilter id="0367a4f9-57e4-4008-95f0-c4c21afbb10e">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>SystemID:</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <regexFilter id="49715386-41f7-4910-98e0-aa8f841e1b3b">
+                <annotation></annotation>
+                <name>Regular Expression</name>
+                <expression>\d*</expression>
+                <ignoreCase>false</ignoreCase>
+                <regType>PERL5</regType>
+                <entireString>true</entireString>
+                <multiLine>false</multiLine>
+              </regexFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="aa617a59-1ada-4ba8-bc8c-e8186cf08151">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="bf7e2804-6398-4228-8a90-d18003a0418f">
+            <annotation></annotation>
+            <name>Result Field: documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="4c18d5e4-3a87-43da-852a-35e62157e523">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>errorMsg</contextKey>
+          <expression id="f4293899-91c0-4928-864d-b71db5f86641">
+            <annotation></annotation>
+            <name>Result Field: documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="b25d5338-d82e-4160-8d29-02aa362a262a">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>/Envelope/Body/Fault/faultstring/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="0d40d915-a932-4f82-a03c-0905820fddc3">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>createCIresponse</contextKey>
+          <expression id="baca20bf-8468-4185-a0ec-918faec0e24c">
+            <annotation></annotation>
+            <name>Result Field: documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="6492603e-a86f-4ffc-9050-b9b37e231ea4">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>/Envelope/Body/UpdateCIResponse/returnWord/text()</xpathQuery>
+              </xpathFilter>
+              <selectLineFilter id="73004843-e230-4f91-aa38-49c594600dcf">
+                <annotation></annotation>
+                <name>Select Line</name>
+                <text>Response status</text>
+                <type>FIRST_LINE_NOT_STARTING_WITH</type>
+                <autoSelectLineEnding>true</autoSelectLineEnding>
+                <windowsLineEnding>false</windowsLineEnding>
+                <unixLineEnding>false</unixLineEnding>
+              </selectLineFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="2aabf334-8bd6-40e1-9d7f-9499fef3dbbe">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>269.0</x>
+        <y>18.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="10a9089e-0358-41c2-b356-4e7bf96dfa0e">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>2aabf334-8bd6-40e1-9d7f-9499fef3dbbe</refId>
+          </destination>
+          <source>
+            <refId>2aabf334-8bd6-40e1-9d7f-9499fef3dbbe</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="be0692a0-465e-4972-8545-43b7c87fc0de">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>569.0</x>
+        <y>68.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="65307b5e-f17b-4023-9c72-c2655b91f1d1">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>be0692a0-465e-4972-8545-43b7c87fc0de</refId>
+          </destination>
+          <source>
+            <refId>be0692a0-465e-4972-8545-43b7c87fc0de</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>d269c085-23ed-478e-82f9-fedb9d01e3b6</startSteps>
+</flow>

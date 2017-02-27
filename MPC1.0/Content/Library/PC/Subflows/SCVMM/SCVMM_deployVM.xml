@@ -1,0 +1,3348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="7d26a86e-1122-4828-b02a-92d32b4a8ef5">
+  <descriptionCdata><![CDATA[7d26a86e-1122-4828-b02a-92d32b4a8ef5.1e5e93a0-9e66-4b5e-9206-161437ff0263.description=<pre>Adds a flow variable into the local context (available to itself and child flows only)\n\nInput Parameters\:\nkeyName - the name of the flow variable to use\nmyValue - the value to assign the flow variable\n\nResponses\:\nsuccess - assigned the flow variable\n\nScriptlet Example\:\n[$scriptletContext putGlobal\: $keyName, $myValue];</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.21ff62b7-0e62-487f-b29c-e30a73cb5c4d.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.43394282-dab7-4269-916d-3235aa05cf2a.prompt=Input command(s)\:
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.49744f86-4068-42e5-8f0b-53fabe4664ca.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.6e08c6f2-4b5c-4856-aca7-f7d3486ee075.description=Runs Service Center Virtual Machine Manager (SCVMM) Cmdlets using Windows PowerShell. The complete syntax and descriptions of all cmdlets that can be used with this operation can be found at http\://www.microsoft.com/download/en/details.aspx?displaylang\=en&id\=20419. The operation creates a remote powershell session to the target host, loads the "Microsoft.SystemCenter.VirtualMachineManager" snap-in and executes the given command(s). \n\nInputs\:\n    host - The hostname or ip address of the SCVMM server.\n    username - The username to use when connecting to the server.\nValue format\: username@domain or domain\\username.\n    password - The password to use when connecting to the server.\n    authType - Specifies the mechanism that is used to authenticate the user's credentials. \nValid values\: Default, Negotiate, Credssp, Kerberos. (case-insensitive)\nDefault value\: Default.\n    commands - The PowerShell cmdlets to execute. For more that one command, you should write each one on a separate row and they will be executed sequentially. \nExample\: get-vmmserver -computerName "1.2.3.4"\n                get-virtualharddisk -all\n    delimiter - The delimiter used to separate each property name from the property value in the output table. \nDefault value\: "\:".\n    colDelimiter - The delimiter used to separate columns in the output table.\nDefault value\: ','\n    rowDelimiter - The delimiter used to separate rows in the output table. \nDefault value\: newline\n    version - The SCVMM Server version.\nDefault value\: 2008 R2\n\nResults\:\n    outputString - A string representation of the results returned by the operation. Essentially any command returns a PowerShell object which has properties, as you can observe from the returnResult. OutputString result converts each object to string and merges all the values into one string. If you want outputString to contain results similar to PowerShell console you should pipe Out-String at the end of the cmdlet  (e.g. Get-VirtualHardDisk -al l Format-List Location, Directory, Name, ID, HostName | Out-String). Doing this will determine returnResult to be something like Length\:xx, because the object is now of type String and Lenth is the only property of this type. This result can be useful in other situations where the PowerShell objects override ToString() method. Therefore, the outputString obtained running PowerShell command Get-Process (without Out-String pipe), will contain the names of the processes running on server.\n    returnResult - A table containing a row for each PSObject that the cmdlets emit. The table's columns represent the properties of these PSObjects, in the propertyName<delimiter>propertyValue format.\n    warnings - A list of warnings that the cmdlets emit. If the cmdlets were executed without warnings, then this result will be an empty string.\n\nResponses\:\nsuccess \t- The cmdlets were executed successfully.\nfailure \t- The cmdlets could not be executed.\n\nNotes\:\n1. Installation of Powershell 2.0 with winrm 2.0 on your client is required. The kit can be downloaded from here\: http\://support.microsoft.com/kb/968930.\n2. Before using this operation, please make sure you have enabled PowerShell remoting, by using the Enable-PSRemoting cmdlet.\n3. Windows Remote Management service must be running.\n4. In workgroup environments, enabling classic mode authentication for network logons may be needed. This can be performed by opening the "Local Security Policy" from Control Panel and selecting "Administrative Tools". Navigate to "Local Policies" -> "Security Options", double click on "Network Access\: Sharing and Security Model for local accounts" and set it to classic.\n5. Also, please modify the WSMan trusted hosts setting, by adding the IP addresses of all remoting clients to the list of trusted hosts. This can be done using one of the following commands\:\n        5.1. Set-item wsman\:localhost\\client\\trustedhosts -value * (adds all computers as trusted hosts)\n        5.2. Set-item wsman\:localhost\\client\\trustedhosts -value Computer (only adds Computer to the trusted hosts)\n        5.3. Set-item wsman\:localhost\\client\\trustedhosts -value *.domain.com (adds all computers in the specified domain)\n        5.4. Set-item wsman\:localhost\\client\\trustedhosts -value 10.10.10.1 (adds the remote computer with the IP address 10.10.10.1 to the trusted hosts list)\n6. Please read the folder's description for information on how to enable CredSSP authentication.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.7c0ec33d-de72-478f-95f6-fb6d721a209a.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.80aec758-8894-47be-b34b-47404681d0ad.description=<pre>This operation checks whether a string matches another string, using a specific matching rule. The "toMatch" input is the string that is checked for matching the "matchTo" expression. \n\nInputs\:\n    matchType - The type of match to perform.\nValid values\: Exact Match, Contains, Contains Once, Does Not Contain, Match All Words, Match No Words, Regex\nDefault value\: Exact Match\n    toMatch - The string that is checked for matching.\n    matchTo - The string to match against.\nExample\: If "matchType" is \u201CRegEx\u201D, the "matchTo" input is a regular expression such as\: ^-?\\d+(([\\.,]\\d+)?)+$. \n    ignoreCase - Specifies whether to ignore case when matching or not.\nValid values\: False, True\nDefault value\: False\n\nResults\:\n    returnResult - This is the primary output. It contains the string "Matches" if the "toMatch" string matches the "matchTo" string. Otherwise, it contains the string "Does Not Match".  \n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.cc2e5e29-57a9-4ef2-aa57-4a6a8df58740.description=<pre>Adds a flow variable into the local context (available to itself and child flows only)\n\nInput Parameters\:\nkeyName - the name of the flow variable to use\nmyValue - the value to assign the flow variable\n\nResponses\:\nsuccess - assigned the flow variable\n\nScriptlet Example\:\n[$scriptletContext putGlobal\: $keyName, $myValue];</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.description=SCVMM_CloneVM will create a new VM based on a template VM in Hyper-V.\n\n
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+7d26a86e-1122-4828-b02a-92d32b4a8ef5.fb4c5700-3f14-459c-b194-98a9feb8f311.description=<pre>\nCheck to see if the value stored in a specified flow variable, denoted by key, is null.\n\nInputs\:\nkeyName - The key to check, i.e. the name of the flow variable.\n\nReturns\: \nThe value in the specified key, i.e. flow variable.\n\nResponses\:\nisNull - If the key is a null pointer, i.e. the flow variable doesn't have an assigned value.\nnotNull - If some value is stored in the key, i.e the flow variable has a value assigned.\n</pre>
+]]></descriptionCdata>
+  <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.description</annotation>
+  <name>SCVMM_deployVM</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="f380bf51-14d9-43f3-9d2a-49666e5adef1">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>host</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="5ff666c4-ddc5-4c6c-b44e-0c376007bca0">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>vmName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="aaa62035-f5ba-4572-b509-30ea3519a5d6">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>vmHostName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="445a410f-e473-4cf5-9f26-aa087a2940ae">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>vmTemplateName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="e56583b0-56c9-4625-aed3-b3284f1ae442">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>memGB</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="73414e9d-dbbc-4f45-ace1-3adf3b225ed2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>cpuCount</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="9c4d3048-4db7-41c5-aea0-93e23f46da23">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>disk0GB</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="a8464e83-1460-4727-9db3-6f68dfcf2f71">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>dataDiskGB</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="2ae0b120-8ba3-40bb-97c4-aceb27e1ab13">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>resourcePoolID</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="0023d305-a519-422c-b0b2-841cb2efc67f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>dataStoreName</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="0155ab28-4d69-4d37-b4e0-1251515483d2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>backupVlan</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="e6794bc9-04aa-45f4-b6af-f6b7982ccd8b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>vlan1</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="179a53ed-4cf9-415c-896f-ad41944075a2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>vlan2</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="8905fd9f-23f4-491a-afb0-6fd7d695928e">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="55215034-5ac1-4fee-9660-40040672d1df">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="feb06366-e385-402c-8aaa-9d136e6b343b">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="1532df1b-0533-4c23-88c6-c17bdd6799c2">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <parallelMultiStep id="c7162ae6-abb5-4658-848e-8a48562a5942">
+      <annotation></annotation>
+      <name>Parallel Split</name>
+      <bounds>
+        <x>90.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="5a1f3758-2428-44ee-8731-f2c8f3c0d7c3">
+        <baseIcon>branch.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>true</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="96723748-5d38-4fce-ac7b-99b4ab1b4519">
+          <annotation></annotation>
+          <name>done</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>done</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041</refId>
+          </destination>
+          <source>
+            <refId>c7162ae6-abb5-4658-848e-8a48562a5942</refId>
+          </source>
+          <positions>
+            <point>
+              <x>140.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>590.0</x>
+              <y>454.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <doneResponse>
+        <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+      </doneResponse>
+      <steps>
+        <step id="d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f">
+          <annotation></annotation>
+          <name>DB_GetVLANIDByGID</name>
+          <bounds>
+            <x>259.0</x>
+            <y>315.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="b2a47e46-36e8-45df-af9c-a4b999af7e89">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <staticBinding id="fb56fa7a-aed3-4588-a700-31bb2ef3dff2">
+              <annotation></annotation>
+              <toContextKey>vlan2</toContextKey>
+              <fromContextKey>vlan2</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>true</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>vlangid</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <value>null</value>
+              <record>false</record>
+            </staticBinding>
+          </bindings>
+          <transitions>
+            <transition id="6687a6cf-34b1-4060-af07-50add21a86a2">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>459.0</x>
+                  <y>413.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>452.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="3ab8da3a-bdbf-41da-991d-704fbffa9aff">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>459.0</x>
+                  <y>413.0</y>
+                </point>
+                <point>
+                  <x>373.7762872712648</x>
+                  <y>343.6118085269197</y>
+                </point>
+                <point>
+                  <x>380.56235998786894</x>
+                  <y>345.7990551049987</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>452.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>0009de0c-8971-453b-8261-fd03f879067a</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="b369fa19-2d59-4854-91fa-5ef784e14acc">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>vlan2ID</contextKey>
+              <expression id="4e1f79b9-8341-4e34-81d0-2c6164d98c79">
+                <annotation></annotation>
+                <name>Result: VLAN_ID</name>
+                <fieldName>VLAN_ID</fieldName>
+                <sourceType>AVAILABLE_RESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="e5d19247-00fc-414b-b13c-92f61863df08">
+          <annotation></annotation>
+          <name>DB_GetVLANIDByGID</name>
+          <bounds>
+            <x>261.0</x>
+            <y>32.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="54bed77c-bde0-408d-8cae-dc38e8774d40">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <userInputBinding id="164bd5f4-8232-4d2d-a10f-cf030d6f0c71">
+              <annotation></annotation>
+              <toContextKey>backupVlan</toContextKey>
+              <fromContextKey>backupVlan</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>true</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>vlangid</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <record>false</record>
+              <prompt></prompt>
+              <isMultiSelect>false</isMultiSelect>
+              <sourceDelimiter>|</sourceDelimiter>
+            </userInputBinding>
+          </bindings>
+          <transitions>
+            <transition id="a72774f8-1c1f-4808-9ed6-8212d10aaf6e">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>e5d19247-00fc-414b-b13c-92f61863df08</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>461.0</x>
+                  <y>130.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>164.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="6bc8edcc-6a9c-4dd5-9401-70d5be0230bc">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>e5d19247-00fc-414b-b13c-92f61863df08</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>461.0</x>
+                  <y>130.0</y>
+                </point>
+                <point>
+                  <x>375.55946505588383</x>
+                  <y>58.445168982822096</y>
+                </point>
+                <point>
+                  <x>379.1765913389851</x>
+                  <y>59.478633635136745</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>164.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>0009de0c-8971-453b-8261-fd03f879067a</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="1599d0c9-b188-487b-8584-633f8dbf589a">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>backupVlanID</contextKey>
+              <expression id="60b8e3f1-3919-47f0-8997-4e53b44fa878">
+                <annotation></annotation>
+                <name>Result: VLAN_ID</name>
+                <fieldName>VLAN_ID</fieldName>
+                <sourceType>AVAILABLE_RESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="eba3f5af-4ec8-4ca7-bd59-b3fce402012b">
+          <annotation></annotation>
+          <name>DB_GetPathByDatastoreName</name>
+          <bounds>
+            <x>252.0</x>
+            <y>469.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="90c342c0-48b6-46c1-847a-46783efd1cac">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <userInputBinding id="095076d5-bac3-49fe-8ff4-a44209684c62">
+              <annotation></annotation>
+              <fromContextKey>dataStoreName</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>db.dsname</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <record>false</record>
+              <prompt></prompt>
+              <isMultiSelect>false</isMultiSelect>
+              <sourceDelimiter>|</sourceDelimiter>
+            </userInputBinding>
+          </bindings>
+          <transitions>
+            <transition id="f33a46f1-2adc-4436-a262-a8f81e2e783e">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>eba3f5af-4ec8-4ca7-bd59-b3fce402012b</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>452.0</x>
+                  <y>567.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>596.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="7e9e2084-72a2-492a-b02a-52ab9e038dc1">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>eba3f5af-4ec8-4ca7-bd59-b3fce402012b</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>452.0</x>
+                  <y>567.0</y>
+                </point>
+                <point>
+                  <x>366.0409996576825</x>
+                  <y>491.87568596071185</y>
+                </point>
+                <point>
+                  <x>377.0071204498296</x>
+                  <y>494.36019770268274</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>596.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>716ce050-ffa0-4127-8704-6c6a649c41d8</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="b8d6ef09-6903-4690-a39f-69bf1b095122">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>vmPath</contextKey>
+              <expression id="852e64cf-b32d-44b8-a1a9-0bd269cdd820">
+                <annotation></annotation>
+                <name>Result: ds.path</name>
+                <fieldName>ds.path</fieldName>
+                <sourceType>AVAILABLE_RESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="78fec920-0997-41d6-9ccf-d5b6e2a78ac7">
+          <annotation></annotation>
+          <name>DB_GetHostGroupByResourcePool</name>
+          <bounds>
+            <x>264.0</x>
+            <y>629.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="dacadc84-e38a-47a7-b555-f13bcd1055e6">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <userInputBinding id="3738e49d-f013-41e7-b6ed-cc91999d125c">
+              <annotation></annotation>
+              <fromContextKey>resourcePoolID</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>db.respool</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <record>false</record>
+              <prompt></prompt>
+              <isMultiSelect>false</isMultiSelect>
+              <sourceDelimiter>|</sourceDelimiter>
+            </userInputBinding>
+          </bindings>
+          <transitions>
+            <transition id="38b7303f-0de9-47ea-a210-4163af207e5d">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>78fec920-0997-41d6-9ccf-d5b6e2a78ac7</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>464.0</x>
+                  <y>727.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>740.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="8fd705a5-9c70-4a2b-9625-a27e7de8a16a">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>78fec920-0997-41d6-9ccf-d5b6e2a78ac7</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>464.0</x>
+                  <y>727.0</y>
+                </point>
+                <point>
+                  <x>374.7842940897078</x>
+                  <y>644.6555296610691</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>740.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>03de8d31-37b8-458e-b076-954c9ca61ea3</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="e3c81c96-c648-4fcc-a8cc-17a76c2b9d9b">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>hostGroupName</contextKey>
+              <expression id="50936bb2-d1bf-4e9e-8744-36d5604024e1">
+                <annotation></annotation>
+                <name>Result: respool.hostGroup</name>
+                <fieldName>respool.hostGroup</fieldName>
+                <sourceType>AVAILABLE_RESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="4e04ad05-c066-4f85-a4cf-59bbd6dbf91c">
+          <annotation></annotation>
+          <name>DB_GetServerInfoForSpec</name>
+          <bounds>
+            <x>229.0</x>
+            <y>774.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="a539394e-aa65-4531-a9a6-dc065aea098c">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <userInputBinding id="3c20afcd-ce99-46c4-8ed3-d416862c3327">
+              <annotation></annotation>
+              <fromContextKey>vmHostName</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>server.hostname</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <record>false</record>
+              <prompt></prompt>
+              <isMultiSelect>false</isMultiSelect>
+              <sourceDelimiter>|</sourceDelimiter>
+            </userInputBinding>
+          </bindings>
+          <transitions>
+            <transition id="b324cbd7-1019-410e-b422-68b7e487e768">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>4e04ad05-c066-4f85-a4cf-59bbd6dbf91c</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>429.0</x>
+                  <y>808.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>820.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="4f2d7447-ea75-49f7-bdcf-86ac09a11fda">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>4e04ad05-c066-4f85-a4cf-59bbd6dbf91c</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>429.0</x>
+                  <y>808.0</y>
+                </point>
+                <point>
+                  <x>340.79193819635634</x>
+                  <y>787.8317979498004</y>
+                </point>
+                <point>
+                  <x>372.16908348289724</x>
+                  <y>790.3253459195917</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>820.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>6b41c136-8101-40c9-8e13-994f00df5cad</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="20967ed0-00e4-4326-879f-f4947c1d1fcb">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>backupIP</contextKey>
+              <expression id="c2e178ca-1bb6-427c-8082-d0c0d1e86390">
+                <annotation></annotation>
+                <name>Result Field: db.getdetails.bakip</name>
+                <fieldName>db.getdetails.bakip</fieldName>
+                <sourceType>RAWRESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+            <flowVariableAssignment id="40cac051-d89b-4562-9110-3ceca7c2d5cd">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>vlan1IP</contextKey>
+              <expression id="6a8c43e2-cdb9-416f-b8fe-fe2d1b024fda">
+                <annotation></annotation>
+                <name>Result Field: db.getdetails.ip1</name>
+                <fieldName>db.getdetails.ip1</fieldName>
+                <sourceType>RAWRESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+            <flowVariableAssignment id="2c083dc1-427a-40e9-b927-d41f47789630">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>vlan2IP</contextKey>
+              <expression id="895fc2ea-f88a-46d7-a313-5f10b7e78aeb">
+                <annotation></annotation>
+                <name>Result Field: db.getdetails.ip2</name>
+                <fieldName>db.getdetails.ip2</fieldName>
+                <sourceType>RAWRESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="e5ef0dff-efae-494b-be42-59058f924f90">
+          <annotation></annotation>
+          <name>DB_GetVLANIDByGID</name>
+          <bounds>
+            <x>243.0</x>
+            <y>164.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <iconSpec id="74a5cfcf-14c0-4d2d-80fa-ba718d9030cc">
+            <baseIcon>flow.png</baseIcon>
+            <basePath>System</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <userInputBinding id="7f1e6b3c-a13a-4b76-8b74-956b40d7cd92">
+              <annotation></annotation>
+              <toContextKey>vlan1</toContextKey>
+              <fromContextKey>vlan1</fromContextKey>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>true</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>vlangid</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <record>false</record>
+              <prompt></prompt>
+              <isMultiSelect>false</isMultiSelect>
+              <sourceDelimiter>|</sourceDelimiter>
+            </userInputBinding>
+          </bindings>
+          <transitions>
+            <transition id="047d778c-16f6-463a-a58e-6046ae09c0ab">
+              <annotation></annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>e5ef0dff-efae-494b-be42-59058f924f90</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>443.0</x>
+                  <y>262.0</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>308.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+            <transition id="e9c58c89-ff73-40c1-b130-172dd937aa33">
+              <annotation></annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>e5ef0dff-efae-494b-be42-59058f924f90</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>443.0</x>
+                  <y>262.0</y>
+                </point>
+                <point>
+                  <x>357.8369162764058</x>
+                  <y>193.3984472439904</y>
+                </point>
+                <point>
+                  <x>381.07822859400335</x>
+                  <y>201.20209955500854</y>
+                </point>
+                <point>
+                  <x>580.0</x>
+                  <y>308.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>333.0</x>
+                <y>0.0</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>0009de0c-8971-453b-8261-fd03f879067a</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="81cdb5a2-3e34-4645-b2c9-88b37b6e549b">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>vlan1ID</contextKey>
+              <expression id="16b11f5a-c32d-44ae-8c0c-49b5c1efaa7c">
+                <annotation></annotation>
+                <name>Result: VLAN_ID</name>
+                <fieldName>VLAN_ID</fieldName>
+                <sourceType>AVAILABLE_RESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <endBranchStep id="f62bcadd-9327-4283-a76b-ee10752b2731">
+          <annotation></annotation>
+          <name>Resolved : success</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings/>
+          <transitions>
+            <transition id="25f7dfc0-6732-4750-8431-5e529ae27ca5">
+              <annotation></annotation>
+              <name>return</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </destination>
+              <source>
+                <refId>f62bcadd-9327-4283-a76b-ee10752b2731</refId>
+              </source>
+              <positions/>
+            </transition>
+          </transitions>
+          <properties/>
+        </endBranchStep>
+      </steps>
+      <startSteps>
+        <refId>e5d19247-00fc-414b-b13c-92f61863df08</refId>
+        <refId>e5ef0dff-efae-494b-be42-59058f924f90</refId>
+        <refId>d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f</refId>
+        <refId>eba3f5af-4ec8-4ca7-bd59-b3fce402012b</refId>
+        <refId>78fec920-0997-41d6-9ccf-d5b6e2a78ac7</refId>
+        <refId>4e04ad05-c066-4f85-a4cf-59bbd6dbf91c</refId>
+      </startSteps>
+      <lanes>
+        <parallelLane id="a1b84fca-e040-44f6-ae08-fa99c0dc4b32">
+          <annotation></annotation>
+          <name>Lane 1</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>e5d19247-00fc-414b-b13c-92f61863df08</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>e5d19247-00fc-414b-b13c-92f61863df08</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="a2e9cfc3-1759-45bf-9044-388a02eb569a">
+          <annotation></annotation>
+          <name>Lane 2</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>e5ef0dff-efae-494b-be42-59058f924f90</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>e5ef0dff-efae-494b-be42-59058f924f90</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="9c4c6e87-0249-47d7-b4c0-eb199f007728">
+          <annotation></annotation>
+          <name>Lane 3</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>d2fb1bff-d80e-43b5-b3a1-7799a96c9b5f</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="e612f055-ff2c-48a2-8877-0bce4785328f">
+          <annotation></annotation>
+          <name>Lane 4</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>eba3f5af-4ec8-4ca7-bd59-b3fce402012b</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>eba3f5af-4ec8-4ca7-bd59-b3fce402012b</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="b912e157-97c5-4122-8390-949cf7e19fba">
+          <annotation></annotation>
+          <name>Lane 5</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>78fec920-0997-41d6-9ccf-d5b6e2a78ac7</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>78fec920-0997-41d6-9ccf-d5b6e2a78ac7</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="1a5c9494-d450-4516-87b4-b5136b0a91e2">
+          <annotation></annotation>
+          <name>Lane 6</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>240.0</width>
+            <height>140.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>4e04ad05-c066-4f85-a4cf-59bbd6dbf91c</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>4e04ad05-c066-4f85-a4cf-59bbd6dbf91c</refId>
+          </parallelStartStep>
+        </parallelLane>
+      </lanes>
+      <callouts/>
+    </parallelMultiStep>
+    <step id="ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041.description</annotation>
+      <name>Check backupVlanID</name>
+      <bounds>
+        <x>540.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="4c788413-c01a-4d7b-a60c-4e0f604e9a85">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>backupVlanID</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="eafeb345-9d65-411b-ab88-5b5e5abf7237">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041</refId>
+          </source>
+          <positions>
+            <point>
+              <x>590.0</x>
+              <y>454.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2bd0b053-3752-40b2-aa03-d1ea5cb6079d">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a</refId>
+          </destination>
+          <source>
+            <refId>ecfd497f-f4bb-4a71-a0c6-c1a0d0dc8041</refId>
+          </source>
+          <positions>
+            <point>
+              <x>590.0</x>
+              <y>450.0</y>
+            </point>
+            <point>
+              <x>720.0</x>
+              <y>450.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="e56dbbcf-5fa1-4d8d-99f8-888b53ebda54">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>1575.0</x>
+        <y>720.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="ececa595-9168-4ce7-bc7c-af4789470636">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e56dbbcf-5fa1-4d8d-99f8-888b53ebda54</refId>
+          </destination>
+          <source>
+            <refId>e56dbbcf-5fa1-4d8d-99f8-888b53ebda54</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="5a1ea55c-b5bb-4592-ac82-0d0449f5212e">
+      <annotation></annotation>
+      <name>DB_GetVLANInfoForSpec</name>
+      <bounds>
+        <x>1411.0</x>
+        <y>413.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="87579040-634f-40b8-b4f2-dfc50f7f95ee">
+          <annotation></annotation>
+          <fromContextKey>vlan1</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>vlan.gid</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="c12efcac-4ae8-4ab3-80cd-1de586ba6644">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>5a1ea55c-b5bb-4592-ac82-0d0449f5212e</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1377.0</x>
+              <y>448.0</y>
+            </point>
+            <point>
+              <x>830.0</x>
+              <y>754.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="0b3f63ad-dc2a-4a56-84ca-6f2dec8fa189">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>80aec758-8894-47be-b34b-47404681d0ad</refId>
+          </destination>
+          <source>
+            <refId>5a1ea55c-b5bb-4592-ac82-0d0449f5212e</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1461.0</x>
+              <y>447.0</y>
+            </point>
+            <point>
+              <x>1625.0</x>
+              <y>447.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>3e6763b0-26e3-40ab-b69d-3063499f150b</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="5b1662e5-2c60-4a2d-af31-d967817d49de">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>dns1</contextKey>
+          <expression id="2d46490e-78ea-445d-83bd-5b0b3d1994fd">
+            <annotation></annotation>
+            <name>Result Field: db.getdetails.dns2</name>
+            <fieldName>db.getdetails.dns2</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="016849a6-2ec6-4d1d-9302-ffa65749bd4c">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>dns2</contextKey>
+          <expression id="21b20532-feb6-415b-87ba-03b2f21e861b">
+            <annotation></annotation>
+            <name>Result Field: db.getdetails.dns1</name>
+            <fieldName>db.getdetails.dns1</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="21ff62b7-0e62-487f-b29c-e30a73cb5c4d">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.21ff62b7-0e62-487f-b29c-e30a73cb5c4d.description</annotation>
+      <name>Check vlan1IP</name>
+      <bounds>
+        <x>1160.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="3fc6dc7a-9aae-4f88-b721-08dfefd14bba">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>vlan1IP</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="69575cec-665d-47be-9ae2-f08ddc875e37">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>21ff62b7-0e62-487f-b29c-e30a73cb5c4d</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1010.0</x>
+              <y>784.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="8b8b1e3b-746a-4559-abae-741a7de2d83f">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5a1ea55c-b5bb-4592-ac82-0d0449f5212e</refId>
+          </destination>
+          <source>
+            <refId>21ff62b7-0e62-487f-b29c-e30a73cb5c4d</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1210.0</x>
+              <y>450.0</y>
+            </point>
+            <point>
+              <x>1461.0</x>
+              <y>447.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="80aec758-8894-47be-b34b-47404681d0ad">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.80aec758-8894-47be-b34b-47404681d0ad.description</annotation>
+      <name>Is 2012?</name>
+      <bounds>
+        <x>1575.0</x>
+        <y>413.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="6bac75ad-f6e8-4f54-a384-dde80426e2b4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Contains</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7e314efc-7357-471a-94c8-e406a927fe5b">
+          <annotation></annotation>
+          <fromContextKey>vmTemplateName</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>toMatch</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4e71b3eb-4e36-4410-b6de-7964d79ed174">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>matchTo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2012</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4e234133-06fd-4151-99ff-1b92281d9eae">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>ignoreCase</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>True</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="db8fffa1-37f5-4749-9c5f-0e3b3e2b595d">
+          <annotation></annotation>
+          <name>Windows 2012R2</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>cc2e5e29-57a9-4ef2-aa57-4a6a8df58740</refId>
+          </destination>
+          <source>
+            <refId>80aec758-8894-47be-b34b-47404681d0ad</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1625.0</x>
+              <y>447.0</y>
+            </point>
+            <point>
+              <x>1625.0</x>
+              <y>580.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="ca7a19aa-7959-4622-8a63-a63ddfff6e87">
+          <annotation></annotation>
+          <name>Other OS</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>1e5e93a0-9e66-4b5e-9206-161437ff0263</refId>
+          </destination>
+          <source>
+            <refId>80aec758-8894-47be-b34b-47404681d0ad</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1625.0</x>
+              <y>447.0</y>
+            </point>
+            <point>
+              <x>1461.0</x>
+              <y>580.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>388.4129877469446</x>
+            <y>0.971284775075434</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f1dafb35-6463-4a1b-8f87-8aa748497bed</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="7c0ec33d-de72-478f-95f6-fb6d721a209a">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.7c0ec33d-de72-478f-95f6-fb6d721a209a.description</annotation>
+      <name>Check backupIP</name>
+      <bounds>
+        <x>930.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="feb2d943-9114-4925-b26b-5e87a8c3c75e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>backupIP</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="389ed5f6-c469-4080-a3f2-af8dc3268f94">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>21ff62b7-0e62-487f-b29c-e30a73cb5c4d</refId>
+          </destination>
+          <source>
+            <refId>7c0ec33d-de72-478f-95f6-fb6d721a209a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>989.5</x>
+              <y>452.9396551724138</y>
+            </point>
+            <point>
+              <x>1080.0</x>
+              <y>390.0</y>
+            </point>
+            <point>
+              <x>1210.0</x>
+              <y>466.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="4ed4b848-6258-437b-8736-8ae797e6adc6">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>7c0ec33d-de72-478f-95f6-fb6d721a209a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>860.0</x>
+              <y>814.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="b5a27463-707c-4d4f-9bcb-4835e210e1c7">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>800.0</x>
+        <y>720.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="0d7bddf7-f2fb-4df9-838f-9d05d208aa83">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="49744f86-4068-42e5-8f0b-53fabe4664ca">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.49744f86-4068-42e5-8f0b-53fabe4664ca.description</annotation>
+      <name>Check vmPath</name>
+      <bounds>
+        <x>800.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="47261e89-01eb-435a-a1ac-b14bb99055e9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>vmPath</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="55b39bd9-a0c9-42a3-b54f-f3583df866d4">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>49744f86-4068-42e5-8f0b-53fabe4664ca</refId>
+          </source>
+          <positions>
+            <point>
+              <x>860.0</x>
+              <y>574.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="f5d54b7b-426f-4e6a-a7db-4b2803dfb784">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>fb4c5700-3f14-459c-b194-98a9feb8f311</refId>
+          </destination>
+          <source>
+            <refId>49744f86-4068-42e5-8f0b-53fabe4664ca</refId>
+          </source>
+          <positions>
+            <point>
+              <x>859.5</x>
+              <y>452.7175572519084</y>
+            </point>
+            <point>
+              <x>990.0</x>
+              <y>390.0</y>
+            </point>
+            <point>
+              <x>1110.0</x>
+              <y>466.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>430.6542304463873</x>
+            <y>-9.984723829227306</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a.description</annotation>
+      <name>Check vlan1ID</name>
+      <bounds>
+        <x>670.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="7b2c974e-8377-4ea0-9d1e-0c98f3e384eb">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>vlan1ID</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="04d33992-bc8b-453a-86e3-2af55d641a93">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>710.0</x>
+              <y>574.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="a9be8a6d-fad2-47eb-b6aa-965435b63e32">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>49744f86-4068-42e5-8f0b-53fabe4664ca</refId>
+          </destination>
+          <source>
+            <refId>c9cfc1ea-12c9-45eb-b2cd-b883066d9b5a</refId>
+          </source>
+          <positions>
+            <point>
+              <x>720.0</x>
+              <y>450.0</y>
+            </point>
+            <point>
+              <x>850.0</x>
+              <y>450.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="cc2e5e29-57a9-4ef2-aa57-4a6a8df58740">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.cc2e5e29-57a9-4ef2-aa57-4a6a8df58740.description</annotation>
+      <name>Set SCVMM command</name>
+      <bounds>
+        <x>1575.0</x>
+        <y>546.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="16571b15-827c-4be4-b82e-1ea16971aba4">
+        <baseIcon>jar.png</baseIcon>
+        <basePath>Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="bd919235-a03c-4260-8162-cd8176a56f04">
+            <baseIcon>edit.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <scriptlet id="b49f8a05-f0cd-40c5-ba83-33f5a626c814">
+        <annotation></annotation>
+        <name>Step Set SCVMM command in Flow SCVMM_deployVM (cc2e5e29-57a9-4ef2-aa57-4a6a8df58740)</name>
+        <script>/*
+   This scriplet constructs the command lines to be executed in SCVMM for deploying a VM. 
+   Generally, it consists of the following steps:
+   1. Input Data Preparation. Get the inputs from OO Input and do the ncessary conversion.
+   2. Create a temporary VM Template, and set the parameters - Hostname, VMLocation, IP addresses.
+   3. Cerate a VMConfiguration based on that VM Template, and then create a VM with updated Tshirt size settings and associated Guest OS Profile.
+   4. Set VM&apos;s VLAN and VM Networks.
+   5. Extend OS disk if necessary, and add the first data disk.
+   6. Power on the VM. 
+   
+   Note:
+   1. A simple strategy is used to select a VMHost from the cluster. The VM is supposed to tranfer to the proper VMHost according to the strategy setup in SCVMM.
+   2. Static IPs are fetched from Elastic IP and pinned in the SCVMM Pool.
+   3. OS Disk is never shrinked if the target TShirt size implies a smaller disk0.
+*/
+
+function getInputValue(inputName) {
+    if ((typeof(scriptletContext.get(inputName)) != &quot;undefined&quot;) &amp;&amp; (scriptletContext.get(inputName) != &quot;&quot;))
+        return scriptletContext.get(inputName);
+    else
+        return null;
+}
+
+var vmHostName = scriptletContext.getLocal(&quot;vmHostName&quot;);
+///// ram and cpu params
+var memGB = scriptletContext.getLocal(&quot;memGB&quot;);
+var cpuCount = scriptletContext.getLocal(&quot;cpuCount&quot;);
+///// disk params
+var disk0GB = scriptletContext.getLocal(&quot;disk0GB&quot;); var dataDiskMB=1024*scriptletContext.getLocal(&quot;dataDiskGB&quot;)*1;
+
+var commands = [];
+commands.push(&quot;$vmTemplateName=\&quot;&quot;+ scriptletContext.getLocal(&quot;vmTemplateName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$guestOSProfileHashTable=&quot;+ scriptletContext.get(&quot;scvmm/guestOSProfiles&quot;) );
+commands.push(&quot;$vmName=\&quot;&quot; + scriptletContext.getLocal(&quot;vmName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmHostName=\&quot;&quot; + vmHostName + &quot;\&quot;&quot;);
+commands.push(&quot;$vmDomainName=\&quot;&quot; + scriptletContext.get(&quot;pc.dns.machine.domain&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmComputerName=$vmHostName + &apos;.&apos; + $vmDomainName&quot;);
+commands.push(&quot;$hostGroupName=\&quot;&quot; + scriptletContext.getLocal(&quot;hostGroupName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmPath=\&quot;&quot; + scriptletContext.getLocal(&quot;vmPath&quot;) + &quot;\&quot;&quot;);
+/////  vlan params
+commands.push(&quot;$virtualNetwork=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.virtualnetwork&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot;$vmNetworkBURName=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.vmnetwork.BUR&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot;$vmNetworkCustomerName=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.vmnetwork.customer&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot; $macAddressPoolName=\&quot;&quot; + scriptletContext.get(&quot;scvmm/network.mac_address_pool&quot;) + &quot;\&quot;&quot;);
+var backupVlan = scriptletContext.getLocal(&quot;backupVlan&quot;);
+var backupVlanID = scriptletContext.getLocal(&quot;backupVlanID&quot;);
+var backupIP = scriptletContext.getLocal(&quot;backupIP&quot;);
+var vlan1 = scriptletContext.getLocal(&quot;vlan1&quot;);
+var vlan1ID = scriptletContext.getLocal(&quot;vlan1ID&quot;);
+var vlan1IP = scriptletContext.getLocal(&quot;vlan1IP&quot;);
+var vlan2 = getInputValue(&quot;vlan2&quot;);
+var vlan2ID = getInputValue(&quot;vlan2ID&quot;);
+var vlan2IP = getInputValue(&quot;vlan2IP&quot;);
+
+commands.push(&quot;$psBackupVlan=\&quot;&quot; + backupVlan + &quot;\&quot;&quot;); commands.push(&quot;$psVlan1=\&quot;&quot; + vlan1 + &quot;\&quot;&quot;); commands.push(&quot;$psVlan2=\&quot;&quot; + vlan2 + &quot;\&quot;&quot;);
+commands.push(&quot;$psBackupVlanID=&quot; + backupVlanID); commands.push(&quot;$psVlan1ID=&quot; + vlan1ID); if( vlan2ID != null) {commands.push(&quot;$psVlan2ID=&quot; + vlan2ID); }
+commands.push(&quot;$psBackupIP=\&quot;&quot; + backupIP + &quot;\&quot;&quot;); commands.push(&quot;$psVlan1IP=\&quot;&quot; + vlan1IP + &quot;\&quot;&quot;); commands.push(&quot; $ipArray = $psVlan1IP,$psBackupIP &quot;);
+if( vlan2ID != null) { 
+	commands.push(&quot;$psVlan2IP=\&quot;&quot; + vlan2IP + &quot;\&quot;&quot;);
+	commands.push(&quot; $ipArray += $psVlan2IP &quot;);
+}
+commands.push(&quot;$tshirtSize=@{ram=&quot;+ (memGB * 1024)+ &quot;; cpu=&quot; + cpuCount + &quot;; osDisk=&quot;+disk0GB+ &quot;; dataDisk=&quot; + dataDiskMB + &quot;}&quot; );
+//////////////////////////////////////////////////////////////////////////////
+commands.push(&quot;$jobGroup = [System.Guid]::NewGuid().ToString() &quot;);
+commands.push(&quot;$tempUUID1 = [System.Guid]::NewGuid().ToString()&quot;);
+
+commands.push(&quot;$Template = Get-SCVMTemplate  -name $vmTemplateName&quot;);
+commands.push(&quot;$osName= $Template.OperatingSystem.Name&quot;);
+commands.push(&quot;$osType = $Template.OperatingSystem.OSType&quot;);
+commands.push(&quot;$tempTemplate = New-SCVMTemplate -Name \&quot;Temporary Template$jobGroup\&quot; -Template $Template &quot;);
+
+commands.push(&quot; if ( $osType -eq \&quot;Linux\&quot; ) { &quot; );
+
+// the scripts for setting DNS.
+var linuxScripts = [];
+
+//Temporary workaround for netmask issue - Ericsson
+linuxScripts.push(&quot; &apos; crontab -l | { cat; echo \&quot;* * * * * /sbin/ifconfig eth1 netmask 255.255.0.0\&quot;; } | crontab - &apos; &quot;);
+
+linuxScripts.push(&quot; \&quot; sed -i &apos;/^search/d&apos; /etc/resolv.conf \&quot; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo search  &quot; + scriptletContext.get(&quot;pc.dns.machine.domain&quot;) + &quot; &gt;&gt;/etc/resolv.conf\&quot;  &apos; &quot; );
+linuxScripts.push(&quot; \&quot; sed -i &apos;/^nameserver/d&apos; /etc/resolv.conf \&quot; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo nameserver    &quot; + scriptletContext.get(&quot;dns1&quot;) + &quot;&gt;&gt; /etc/resolv.conf \&quot;  &apos; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo nameserver    &quot; + scriptletContext.get(&quot;dns2&quot;) + &quot;&gt;&gt; /etc/resolv.conf \&quot; &apos; &quot;);
+//fix issue: append back the localhost entry in /etc/hosts.
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo 127.0.0.1 localhost &gt;&gt;/etc/hosts \&quot; &apos; &quot;);
+commands.push(&quot; 	$linuxScripts = &quot; + linuxScripts.join(&quot;, &quot;) );
+//commands.push(&quot; if ( $osName -match &apos;Red Hat&apos; ) {&quot;);
+//fqdn name for rhel
+//commands.push(&quot; $linuxScripts += \&quot; sed -i &apos;/^HOSTNAME/d&apos; /etc/sysconfig/network \&quot; &quot;);
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;echo HOSTNAME=$vmComputerName &gt;&gt;  /etc/sysconfig/network&apos; \&quot; &quot;);
+
+//commands.push(&quot;} elseif ( $osName -match &apos;Suse&apos; ) { &quot;);
+//fqdn name for suse
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;echo $vmComputerName &gt; /etc/HOSTNAME&apos; \&quot; &quot;);
+//commands.push(&quot;}&quot;);
+// fqdn name without reboot.
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;hostname $vmComputerName&apos; \&quot; &quot;);
+
+commands.push(&quot; }&quot;);
+
+commands.push(&quot;$vmNetworkBUR = Get-SCVMNetwork -Name $vmNetworkBURName &quot;);
+commands.push(&quot;$vmNetworkCustomer = Get-SCVMNetwork -Name $vmNetworkCustomerName &quot;);
+
+// Get address pools.
+commands.push(&quot; $ipPool1 = Get-SCStaticIPAddressPool -Name $psVlan1 &quot;);
+commands.push(&quot; $ipPool2 = Get-SCStaticIPAddressPool -Name $psBackupVlan &quot;);
+commands.push(&quot; $ipPoolArray = $ipPool1,$ipPool2 &quot;);
+
+if ( vlan2ID != null) {
+commands.push(&quot; New-SCVirtualNetworkAdapter   -VMTemplate $tempTemplate  -Synthetic&quot;);
+commands.push(&quot; $ipPool3 =  Get-SCStaticIPAddressPool -Name $psVlan2 &quot;);
+commands.push(&quot; $ipPoolArray += $ipPool3 &quot;);
+}
+
+// Make sure the adapters are configured with static address type and mac address type.
+commands.push(&quot;$nicInTemplate = Get-SCVirtualNetworkAdapter -VMTemplate $tempTemplate &quot;);
+commands.push(&quot; foreach( $adapter in $nicInTemplate) { &quot;);
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter  -IPv4AddressType Static  -macAddressType Static -MACAddress \&quot;00-00-00-00-00-00\&quot; -VirtualNetwork $virtualNetwork -VMNetwork $vmNetworkBUR &quot;);
+commands.push(&quot; }&quot;);
+
+
+//#$LocalAdministratorCredential = get-credential
+//#-LocalAdministratorCredential $LocalAdministratorCredential
+commands.push(&quot;$vmHost = Get-SCVMHost -VMHostGroup ( get-SCVMHostGroup $hostGroupName ) | Sort-Object -Property VMs.count | Select-Object -First 1&quot;);
+commands.push(&quot;$vmConfig = New-SCVMConfiguration -VMTemplate $tempTemplate  -VMHostGroup ( get-SCVMHostGroup $hostGroupName ) -Name \&quot;Config$jobGroup\&quot; &quot;);
+commands.push(&quot; Set-SCVMConfiguration -VMConfiguration $vmConfig -ComputerName $vmComputerName -VMHost $vmHost -VMLocation $vmPath &quot;);
+
+// Update vlan and ip settings on the network adapters.
+
+commands.push(&quot; $ipInUseSet = Get-SCIPAddress &quot;);
+commands.push(&quot; foreach ( $ip in $ipInUseSet  ) {&quot;);
+commands.push(&quot;		$nic = Get-SCVirtualNetworkAdapter -id $ip.AssignedToID -ErrorAction SilentlyContinue &quot;);
+commands.push(&quot;		if ( ! $nic) {$ip | Revoke-SCIPAddress -ReturnToPool $true} &quot;); 
+commands.push(&quot; } &quot;);
+commands.push(&quot; $macAddressPool = Get-SCMACAddressPool -name $macAddressPoolName &quot;);
+
+commands.push(&quot; $naConfigArray = Get-SCVirtualNetworkAdapterConfiguration  -VMConfiguration $vmConfig &quot;);
+commands.push(&quot; $i = 0 &quot;);
+commands.push(&quot; $j = 0 &quot;);
+commands.push(&quot; foreach ( $naConfig in $naConfigArray ) { &quot;);
+
+commands.push(&quot; 	$ipPool = $ipPoolArray[$i++] &quot;);
+commands.push(&quot; 	$ip = $ipArray[$j++] &quot;);
+commands.push(&quot; 	Set-SCVirtualNetworkAdapterConfiguration -VirtualNetworkAdapterConfiguration $naConfig  -IPv4Address $ip -IPv4AddressPool $ipPool  -PinIPv4AddressPool $true -MACAddressPool $macAddressPool -PinMACAddressPool $true  &quot;);
+commands.push(&quot;} &quot;);
+commands.push(&quot; Update-SCVMConfiguration $vmConfig &quot;);
+commands.push(&quot; $guestOSProfileName = $guestOSProfileHashTable[$osName] &quot;);
+var newVMCmdPart1=&quot; $myVM = New-SCVirtualMachine -Name $vmName -VMConfiguration $vmConfig -cpucount $tshirtSize[\&quot;cpu\&quot;] -memorymb $tshirtSize[\&quot;ram\&quot;] -Description \&quot;\&quot; &quot;;
+var newVMCmdParte = &quot; -BlockDynamicOptimization $false -JobGroup $jobGroup -StartAction \&quot;NeverAutoTurnOnVM\&quot; -StopAction \&quot;SaveVM\&quot; &quot;;
+commands.push(&quot; if ( $guestOSProfileName ) { &quot;);
+commands.push(&quot;  	$guestOSProfile = Get-SCGuestOSProfile -Name $guestOSProfileName &quot;);     
+commands.push(&quot;     if ( $osType -eq \&quot;Linux\&quot; ) { &quot;);
+commands.push(			newVMCmdPart1 +&quot; -GuestOSProfile $guestOSProfile -GuiRunOnceCommands $linuxScripts  -LinuxDomainName $vmDomainName  &quot; + newVMCmdParte);
+commands.push(&quot;     }else { &quot; );
+//commands.push(			newVMCmdPart1 + &quot;	-GuestOSProfile $guestOSProfile &quot; + newVMCmdParte);
+commands.push(      newVMCmdPart1 + &quot;-GuiRunOnceCommands \&quot;cmd.exe /c timeout 60\&quot;, \&quot;cmd.exe /c echo netsh interface ip set address name=\&quot;\&quot;Ethernet 2\&quot;\&quot; static $ipPool2 255.255.0.0 &gt;c:\setNW.bat\&quot;, \&quot;cmd.exe /c c:\setNW.bat &gt; c:\ipconfig-test.txt\&quot; -GuestOSProfile $guestOSProfile &quot; + newVMCmdParte);
+commands.push(&quot;     } &quot;);
+commands.push (&quot; } else { &quot;);
+commands.push(&quot;     if ( $osType -eq \&quot;Linux\&quot; ) { &quot;);
+commands.push(			newVMCmdPart1 + &quot;	 -GuiRunOnceCommands $linuxScripts  -LinuxDomainName $vmDomainName &quot; + newVMCmdParte);
+commands.push(&quot;     }else { &quot; );
+//commands.push(			newVMCmdPart1  + newVMCmdParte);
+commands.push(      newVMCmdPart1 + &quot;-GuiRunOnceCommands \&quot;cmd.exe /c timeout 60\&quot;, \&quot;cmd.exe /c echo netsh interface ip set address name=\&quot;\&quot;Ethernet 2\&quot;\&quot; static $ipPool2 255.255.0.0 &gt;c:\setNW.bat\&quot;, \&quot;cmd.exe /c c:\setNW.bat &gt; c:\ipconfig-test.txt\&quot; &quot; + newVMCmdParte);
+commands.push(&quot;     } &quot;);
+commands.push (&quot; } &quot;);
+
+
+
+//We may remove the temporary template if anything goes wrong due to existing temporary template.
+
+// set vmnetwork, vlan and virtualnetwork.
+commands.push(&quot;$adapterArray = Get-SCVirtualNetworkAdapter -VM $myVM &quot;);
+commands.push(&quot; foreach( $adapter in $adapterArray) { &quot;);
+commands.push(&quot;   if( $adapter.IPv4Addresses -match $psBackupIP ) { &quot;);
+//#backup vlan
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psBackupVlanID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkBUR &quot;);
+commands.push(&quot;   }elseif( $adapter.IPv4Addresses -match $psVlan1IP ) { &quot;);
+//# set cust vlan1.
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psVlan1ID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkCustomer &quot;);
+commands.push(&quot; }elseif($adapter.IPv4Addresses -match $psVlan2IP) {&quot;);
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psVlan2ID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkCustomer &quot;);
+commands.push(&quot;} }&quot;);
+
+//# set disks.
+commands.push(&quot;$myVM = get-scvirtualmachine -name $vmName&quot;);
+//#1. extend disk.
+// extend only if the current disk size is smaller than the target osDisk size.
+commands.push(&quot;$osHardDiskSize= get-scvirtualharddisk -VM $myVM | select-object -Property MaximumSize|select-object -First 1&quot;);
+commands.push(&quot;$osHardDiskSizeGB = [math]::Ceiling( $osHardDiskSize.MaximumSize/1024/1024/1024)&quot;);
+commands.push(&quot; if ( $osHardDiskSizeGB -lt  $tshirtSize[\&quot;osDisk\&quot;] ) { &quot;);
+commands.push(&quot;		Get-SCVirtualDiskDrive -VM $myVM | where -Property VolumeType -like &apos;boot*&apos; |&quot;);
+commands.push(&quot;		Expand-SCVirtualDiskDrive -VirtualHardDiskSizeGB $tshirtSize[\&quot;osDisk\&quot;]&quot;);
+commands.push(&quot; }&quot;);
+//#2. add disk
+ //# add the first datadisk.
+ //PSO January 2016: changed LUN from &apos;0&apos; to &apos;2&apos; and changed &apos;dynamic&apos; to &apos;fixed&apos;
+commands.push(&quot;New-SCVirtualDiskDrive -Bus 0 -LUN 2 -VM $myVM -FileName \&quot;datadisk0\&quot; -SCSI -VirtualHardDiskSizeMB $tshirtSize[\&quot;dataDisk\&quot;] -fixed;&quot;);
+
+commands.push(&quot;Start-VM $myVM&quot;);
+scriptletContext.put(&quot;commands&quot;,commands.join(&quot;\r\n&quot;));</script>
+        <type>RHINO</type>
+      </scriptlet>
+      <bindings>
+        <staticBinding id="2e7101dc-fada-49d6-9fcb-5151d61f1e85">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f5c4d802-ec5f-46bc-8138-030e93d30901">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>myValue</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="29b3ca42-30e5-4330-ab11-6eacf70cc175">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Field_1</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${keyName}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b0b3d01d-f151-4252-a0ce-dc0136195ab8">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Field_2</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${myValue}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="1940e276-1d4d-4459-a04f-b4265fa3bcc2">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>6e08c6f2-4b5c-4856-aca7-f7d3486ee075</refId>
+          </destination>
+          <source>
+            <refId>cc2e5e29-57a9-4ef2-aa57-4a6a8df58740</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1625.0</x>
+              <y>580.0</y>
+            </point>
+            <point>
+              <x>1461.0</x>
+              <y>754.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f3112e9d-ed88-47bf-be86-2f99e8541a33</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="294914cc-0fa2-4fc6-a0c1-cc85ab0952f6">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>1275.0</x>
+        <y>720.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="236cf9ae-f4bf-4222-9284-99ebf05c374e">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>294914cc-0fa2-4fc6-a0c1-cc85ab0952f6</refId>
+          </destination>
+          <source>
+            <refId>294914cc-0fa2-4fc6-a0c1-cc85ab0952f6</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="fb4c5700-3f14-459c-b194-98a9feb8f311">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.fb4c5700-3f14-459c-b194-98a9feb8f311.description</annotation>
+      <name>Check hostGroupName</name>
+      <bounds>
+        <x>1060.0</x>
+        <y>416.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="408811c9-9141-4d04-b182-096376e2f396">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>hostGroupName</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="1d2fa54e-5f5d-4b13-80ed-219da2a822d4">
+          <annotation></annotation>
+          <name>isNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>isNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5a27463-707c-4d4f-9bcb-4835e210e1c7</refId>
+          </destination>
+          <source>
+            <refId>fb4c5700-3f14-459c-b194-98a9feb8f311</refId>
+          </source>
+          <positions>
+            <point>
+              <x>950.0</x>
+              <y>664.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>724.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="8f2775ab-6d22-45d1-8c89-fc876ccd5467">
+          <annotation></annotation>
+          <name>notNull</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>notNull</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7c0ec33d-de72-478f-95f6-fb6d721a209a</refId>
+          </destination>
+          <source>
+            <refId>fb4c5700-3f14-459c-b194-98a9feb8f311</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1110.0</x>
+              <y>450.0</y>
+            </point>
+            <point>
+              <x>980.0</x>
+              <y>450.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>b9997f7f-d19c-4dc6-acc4-fa91a8644a38</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="1e5e93a0-9e66-4b5e-9206-161437ff0263">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.1e5e93a0-9e66-4b5e-9206-161437ff0263.description</annotation>
+      <name>Set SCVMM command</name>
+      <bounds>
+        <x>1411.0</x>
+        <y>546.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="29d56d04-2574-4dcf-960a-af4a1626f2ab">
+        <baseIcon>jar.png</baseIcon>
+        <basePath>Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="f801b15e-af54-4729-a9ee-8e162fc8b69b">
+            <baseIcon>edit.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <scriptlet id="487449c7-cba1-4058-80a2-a72b2256999d">
+        <annotation></annotation>
+        <name>Step Set SCVMM command in Flow SCVMM_deployVM (1e5e93a0-9e66-4b5e-9206-161437ff0263)</name>
+        <script>/*
+   This scriplet constructs the command lines to be executed in SCVMM for deploying a VM. 
+   Generally, it consists of the following steps:
+   1. Input Data Preparation. Get the inputs from OO Input and do the ncessary conversion.
+   2. Create a temporary VM Template, and set the parameters - Hostname, VMLocation, IP addresses.
+   3. Cerate a VMConfiguration based on that VM Template, and then create a VM with updated Tshirt size settings and associated Guest OS Profile.
+   4. Set VM&apos;s VLAN and VM Networks.
+   5. Extend OS disk if necessary, and add the first data disk.
+   6. Power on the VM. 
+   
+   Note:
+   1. A simple strategy is used to select a VMHost from the cluster. The VM is supposed to tranfer to the proper VMHost according to the strategy setup in SCVMM.
+   2. Static IPs are fetched from Elastic IP and pinned in the SCVMM Pool.
+   3. OS Disk is never shrinked if the target TShirt size implies a smaller disk0.
+*/
+
+function getInputValue(inputName) {
+    if ((typeof(scriptletContext.get(inputName)) != &quot;undefined&quot;) &amp;&amp; (scriptletContext.get(inputName) != &quot;&quot;))
+        return scriptletContext.get(inputName);
+    else
+        return null;
+}
+
+var vmHostName = scriptletContext.getLocal(&quot;vmHostName&quot;);
+///// ram and cpu params
+var memGB = scriptletContext.getLocal(&quot;memGB&quot;);
+var cpuCount = scriptletContext.getLocal(&quot;cpuCount&quot;);
+///// disk params
+var disk0GB = scriptletContext.getLocal(&quot;disk0GB&quot;); var dataDiskMB=1024*scriptletContext.getLocal(&quot;dataDiskGB&quot;)*1;
+
+var commands = [];
+commands.push(&quot;$vmTemplateName=\&quot;&quot;+ scriptletContext.getLocal(&quot;vmTemplateName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$guestOSProfileHashTable=&quot;+ scriptletContext.get(&quot;scvmm/guestOSProfiles&quot;) );
+commands.push(&quot;$vmName=\&quot;&quot; + scriptletContext.getLocal(&quot;vmName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmHostName=\&quot;&quot; + vmHostName + &quot;\&quot;&quot;);
+commands.push(&quot;$vmDomainName=\&quot;&quot; + scriptletContext.get(&quot;pc.dns.machine.domain&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmComputerName=$vmHostName + &apos;.&apos; + $vmDomainName&quot;);
+commands.push(&quot;$hostGroupName=\&quot;&quot; + scriptletContext.getLocal(&quot;hostGroupName&quot;) + &quot;\&quot;&quot;);
+commands.push(&quot;$vmPath=\&quot;&quot; + scriptletContext.getLocal(&quot;vmPath&quot;) + &quot;\&quot;&quot;);
+/////  vlan params
+commands.push(&quot;$virtualNetwork=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.virtualnetwork&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot;$vmNetworkBURName=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.vmnetwork.BUR&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot;$vmNetworkCustomerName=\&quot;&quot;+ scriptletContext.get(&quot;scvmm/network.vmnetwork.customer&quot;) +&quot;\&quot;&quot;);
+
+commands.push(&quot; $macAddressPoolName=\&quot;&quot; + scriptletContext.get(&quot;scvmm/network.mac_address_pool&quot;) + &quot;\&quot;&quot;);
+var backupVlan = scriptletContext.getLocal(&quot;backupVlan&quot;);
+var backupVlanID = scriptletContext.getLocal(&quot;backupVlanID&quot;);
+var backupIP = scriptletContext.getLocal(&quot;backupIP&quot;);
+var vlan1 = scriptletContext.getLocal(&quot;vlan1&quot;);
+var vlan1ID = scriptletContext.getLocal(&quot;vlan1ID&quot;);
+var vlan1IP = scriptletContext.getLocal(&quot;vlan1IP&quot;);
+var vlan2 = getInputValue(&quot;vlan2&quot;);
+var vlan2ID = getInputValue(&quot;vlan2ID&quot;);
+var vlan2IP = getInputValue(&quot;vlan2IP&quot;);
+
+commands.push(&quot;$psBackupVlan=\&quot;&quot; + backupVlan + &quot;\&quot;&quot;); commands.push(&quot;$psVlan1=\&quot;&quot; + vlan1 + &quot;\&quot;&quot;); commands.push(&quot;$psVlan2=\&quot;&quot; + vlan2 + &quot;\&quot;&quot;);
+commands.push(&quot;$psBackupVlanID=&quot; + backupVlanID); commands.push(&quot;$psVlan1ID=&quot; + vlan1ID); if( vlan2ID != null) {commands.push(&quot;$psVlan2ID=&quot; + vlan2ID); }
+commands.push(&quot;$psBackupIP=\&quot;&quot; + backupIP + &quot;\&quot;&quot;); commands.push(&quot;$psVlan1IP=\&quot;&quot; + vlan1IP + &quot;\&quot;&quot;); commands.push(&quot; $ipArray = $psVlan1IP,$psBackupIP &quot;);
+if( vlan2ID != null) { 
+	commands.push(&quot;$psVlan2IP=\&quot;&quot; + vlan2IP + &quot;\&quot;&quot;);
+	commands.push(&quot; $ipArray += $psVlan2IP &quot;);
+}
+commands.push(&quot;$tshirtSize=@{ram=&quot;+ (memGB * 1024)+ &quot;; cpu=&quot; + cpuCount + &quot;; osDisk=&quot;+disk0GB+ &quot;; dataDisk=&quot; + dataDiskMB + &quot;}&quot; );
+//////////////////////////////////////////////////////////////////////////////
+commands.push(&quot;$jobGroup = [System.Guid]::NewGuid().ToString() &quot;);
+commands.push(&quot;$tempUUID1 = [System.Guid]::NewGuid().ToString()&quot;);
+
+commands.push(&quot;$Template = Get-SCVMTemplate  -name $vmTemplateName&quot;);
+commands.push(&quot;$osName= $Template.OperatingSystem.Name&quot;);
+commands.push(&quot;$osType = $Template.OperatingSystem.OSType&quot;);
+commands.push(&quot;$tempTemplate = New-SCVMTemplate -Name \&quot;Temporary Template$jobGroup\&quot; -Template $Template &quot;);
+
+commands.push(&quot; if ( $osType -eq \&quot;Linux\&quot; ) { &quot; );
+
+// the scripts for setting DNS.
+var linuxScripts = [];
+
+//Temporary workaround for netmask issue - Ericsson
+linuxScripts.push(&quot; &apos; crontab -l | { cat; echo \&quot;* * * * * /sbin/ifconfig eth1 netmask 255.255.0.0\&quot;; } | crontab - &apos; &quot;);
+
+linuxScripts.push(&quot; \&quot; sed -i &apos;/^search/d&apos; /etc/resolv.conf \&quot; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo search  &quot; + scriptletContext.get(&quot;pc.dns.machine.domain&quot;) + &quot; &gt;&gt;/etc/resolv.conf\&quot;  &apos; &quot; );
+linuxScripts.push(&quot; \&quot; sed -i &apos;/^nameserver/d&apos; /etc/resolv.conf \&quot; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo nameserver    &quot; + scriptletContext.get(&quot;dns1&quot;) + &quot;&gt;&gt; /etc/resolv.conf \&quot;  &apos; &quot;);
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo nameserver    &quot; + scriptletContext.get(&quot;dns2&quot;) + &quot;&gt;&gt; /etc/resolv.conf \&quot; &apos; &quot;);
+//fix issue: append back the localhost entry in /etc/hosts.
+linuxScripts.push(&quot; &apos; /bin/sh -c \&quot;echo 127.0.0.1 localhost &gt;&gt;/etc/hosts \&quot; &apos; &quot;);
+commands.push(&quot; 	$linuxScripts = &quot; + linuxScripts.join(&quot;, &quot;) );
+//commands.push(&quot; if ( $osName -match &apos;Red Hat&apos; ) {&quot;);
+//fqdn name for rhel
+//commands.push(&quot; $linuxScripts += \&quot; sed -i &apos;/^HOSTNAME/d&apos; /etc/sysconfig/network \&quot; &quot;);
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;echo HOSTNAME=$vmComputerName &gt;&gt;  /etc/sysconfig/network&apos; \&quot; &quot;);
+
+//commands.push(&quot;} elseif ( $osName -match &apos;Suse&apos; ) { &quot;);
+//fqdn name for suse
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;echo $vmComputerName &gt; /etc/HOSTNAME&apos; \&quot; &quot;);
+//commands.push(&quot;}&quot;);
+// fqdn name without reboot.
+//commands.push(&quot; $linuxScripts += \&quot; /bin/sh -c &apos;hostname $vmComputerName&apos; \&quot; &quot;);
+
+commands.push(&quot; }&quot;);
+
+commands.push(&quot;$vmNetworkBUR = Get-SCVMNetwork -Name $vmNetworkBURName &quot;);
+commands.push(&quot;$vmNetworkCustomer = Get-SCVMNetwork -Name $vmNetworkCustomerName &quot;);
+
+// Get address pools.
+commands.push(&quot; $ipPool1 = Get-SCStaticIPAddressPool -Name $psVlan1 &quot;);
+commands.push(&quot; $ipPool2 = Get-SCStaticIPAddressPool -Name $psBackupVlan &quot;);
+commands.push(&quot; $ipPoolArray = $ipPool1,$ipPool2 &quot;);
+
+if ( vlan2ID != null) {
+commands.push(&quot; New-SCVirtualNetworkAdapter   -VMTemplate $tempTemplate  -Synthetic&quot;);
+commands.push(&quot; $ipPool3 =  Get-SCStaticIPAddressPool -Name $psVlan2 &quot;);
+commands.push(&quot; $ipPoolArray += $ipPool3 &quot;);
+}
+
+// Make sure the adapters are configured with static address type and mac address type.
+commands.push(&quot;$nicInTemplate = Get-SCVirtualNetworkAdapter -VMTemplate $tempTemplate &quot;);
+commands.push(&quot; foreach( $adapter in $nicInTemplate) { &quot;);
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter  -IPv4AddressType Static  -macAddressType Static -MACAddress \&quot;00-00-00-00-00-00\&quot; -VirtualNetwork $virtualNetwork -VMNetwork $vmNetworkBUR &quot;);
+commands.push(&quot; }&quot;);
+
+
+//#$LocalAdministratorCredential = get-credential
+//#-LocalAdministratorCredential $LocalAdministratorCredential
+commands.push(&quot;$vmHost = Get-SCVMHost -VMHostGroup ( get-SCVMHostGroup $hostGroupName ) | Sort-Object -Property VMs.count | Select-Object -First 1&quot;);
+commands.push(&quot;$vmConfig = New-SCVMConfiguration -VMTemplate $tempTemplate  -VMHostGroup ( get-SCVMHostGroup $hostGroupName ) -Name \&quot;Config$jobGroup\&quot; &quot;);
+commands.push(&quot; Set-SCVMConfiguration -VMConfiguration $vmConfig -ComputerName $vmComputerName -VMHost $vmHost -VMLocation $vmPath &quot;);
+
+// Update vlan and ip settings on the network adapters.
+
+commands.push(&quot; $ipInUseSet = Get-SCIPAddress &quot;);
+commands.push(&quot; foreach ( $ip in $ipInUseSet  ) {&quot;);
+commands.push(&quot;		$nic = Get-SCVirtualNetworkAdapter -id $ip.AssignedToID -ErrorAction SilentlyContinue &quot;);
+commands.push(&quot;		if ( ! $nic) {$ip | Revoke-SCIPAddress -ReturnToPool $true} &quot;); 
+commands.push(&quot; } &quot;);
+commands.push(&quot; $macAddressPool = Get-SCMACAddressPool -name $macAddressPoolName &quot;);
+
+commands.push(&quot; $naConfigArray = Get-SCVirtualNetworkAdapterConfiguration  -VMConfiguration $vmConfig &quot;);
+commands.push(&quot; $i = 0 &quot;);
+commands.push(&quot; $j = 0 &quot;);
+commands.push(&quot; foreach ( $naConfig in $naConfigArray ) { &quot;);
+
+commands.push(&quot; 	$ipPool = $ipPoolArray[$i++] &quot;);
+commands.push(&quot; 	$ip = $ipArray[$j++] &quot;);
+commands.push(&quot; 	Set-SCVirtualNetworkAdapterConfiguration -VirtualNetworkAdapterConfiguration $naConfig  -IPv4Address $ip -IPv4AddressPool $ipPool  -PinIPv4AddressPool $true -MACAddressPool $macAddressPool -PinMACAddressPool $true  &quot;);
+commands.push(&quot;} &quot;);
+commands.push(&quot; Update-SCVMConfiguration $vmConfig &quot;);
+commands.push(&quot; $guestOSProfileName = $guestOSProfileHashTable[$osName] &quot;);
+var newVMCmdPart1=&quot; $myVM = New-SCVirtualMachine -Name $vmName -VMConfiguration $vmConfig -cpucount $tshirtSize[\&quot;cpu\&quot;] -memorymb $tshirtSize[\&quot;ram\&quot;] -Description \&quot;\&quot; &quot;;
+var newVMCmdParte = &quot; -BlockDynamicOptimization $false -JobGroup $jobGroup -StartAction \&quot;NeverAutoTurnOnVM\&quot; -StopAction \&quot;SaveVM\&quot; &quot;;
+commands.push(&quot; if ( $guestOSProfileName ) { &quot;);
+commands.push(&quot;  	$guestOSProfile = Get-SCGuestOSProfile -Name $guestOSProfileName &quot;);     
+commands.push(&quot;     if ( $osType -eq \&quot;Linux\&quot; ) { &quot;);
+commands.push(			newVMCmdPart1 +&quot; -GuestOSProfile $guestOSProfile -GuiRunOnceCommands $linuxScripts  -LinuxDomainName $vmDomainName  &quot; + newVMCmdParte);
+commands.push(&quot;     }else { &quot; );
+//commands.push(			newVMCmdPart1 + &quot;	-GuestOSProfile $guestOSProfile &quot; + newVMCmdParte);
+commands.push(      newVMCmdPart1 + &quot;-GuiRunOnceCommands \&quot;cmd.exe /c timeout 60\&quot;, \&quot;cmd.exe /c echo netsh interface ip set address name=\&quot;\&quot;Ethernet 2\&quot;\&quot; static $ipPool2 255.255.0.0 &gt;c:\setNW.bat\&quot;, \&quot;cmd.exe /c c:\setNW.bat &gt; c:\ipconfig-test.txt\&quot; -GuestOSProfile $guestOSProfile &quot; + newVMCmdParte);
+commands.push(&quot;     } &quot;);
+commands.push (&quot; } else { &quot;);
+commands.push(&quot;     if ( $osType -eq \&quot;Linux\&quot; ) { &quot;);
+commands.push(			newVMCmdPart1 + &quot;	 -GuiRunOnceCommands $linuxScripts  -LinuxDomainName $vmDomainName &quot; + newVMCmdParte);
+commands.push(&quot;     }else { &quot; );
+//commands.push(			newVMCmdPart1  + newVMCmdParte);
+commands.push(      newVMCmdPart1 + &quot;-GuiRunOnceCommands \&quot;cmd.exe /c timeout 60\&quot;, \&quot;cmd.exe /c echo netsh interface ip set address name=\&quot;\&quot;Ethernet 2\&quot;\&quot; static $ipPool2 255.255.0.0 &gt;c:\setNW.bat\&quot;, \&quot;cmd.exe /c c:\setNW.bat &gt; c:\ipconfig-test.txt\&quot; &quot; + newVMCmdParte);
+commands.push(&quot;     } &quot;);
+commands.push (&quot; } &quot;);
+
+
+
+//We may remove the temporary template if anything goes wrong due to existing temporary template.
+
+// set vmnetwork, vlan and virtualnetwork.
+commands.push(&quot;$adapterArray = Get-SCVirtualNetworkAdapter -VM $myVM &quot;);
+commands.push(&quot; foreach( $adapter in $adapterArray) { &quot;);
+commands.push(&quot;   if( $adapter.IPv4Addresses -match $psBackupIP ) { &quot;);
+//#backup vlan
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psBackupVlanID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkBUR &quot;);
+commands.push(&quot;   }elseif( $adapter.IPv4Addresses -match $psVlan1IP ) { &quot;);
+//# set cust vlan1.
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psVlan1ID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkCustomer &quot;);
+commands.push(&quot; }elseif($adapter.IPv4Addresses -match $psVlan2IP) {&quot;);
+commands.push(&quot; Set-SCVirtualNetworkAdapter $adapter -vlanEnabled $true -VlanID $psVlan2ID -virtualNetwork $virtualNetwork -VMNetwork $vmNetworkCustomer &quot;);
+commands.push(&quot;} }&quot;);
+
+//# set disks.
+commands.push(&quot;$myVM = get-scvirtualmachine -name $vmName&quot;);
+//#1. extend disk.
+// extend only if the current disk size is smaller than the target osDisk size.
+commands.push(&quot;$osHardDiskSize= get-scvirtualharddisk -VM $myVM | select-object -Property MaximumSize|select-object -First 1&quot;);
+commands.push(&quot;$osHardDiskSizeGB = [math]::Ceiling( $osHardDiskSize.MaximumSize/1024/1024/1024)&quot;);
+commands.push(&quot; if ( $osHardDiskSizeGB -lt  $tshirtSize[\&quot;osDisk\&quot;] ) { &quot;);
+commands.push(&quot;		Get-SCVirtualDiskDrive -VM $myVM | where -Property VolumeType -like &apos;boot*&apos; |&quot;);
+commands.push(&quot;		Expand-SCVirtualDiskDrive -VirtualHardDiskSizeGB $tshirtSize[\&quot;osDisk\&quot;]&quot;);
+commands.push(&quot; }&quot;);
+//#2. add disk
+ //# add the first datadisk.
+ //PSO January 2016: changed &apos;dynamic&apos; to &apos;fixed&apos;
+commands.push(&quot;New-SCVirtualDiskDrive -Bus 0 -LUN 0 -VM $myVM -FileName \&quot;datadisk0\&quot; -SCSI -VirtualHardDiskSizeMB $tshirtSize[\&quot;dataDisk\&quot;] -fixed;&quot;);
+
+commands.push(&quot;Start-VM $myVM&quot;);
+scriptletContext.put(&quot;commands&quot;,commands.join(&quot;\r\n&quot;));</script>
+        <type>RHINO</type>
+      </scriptlet>
+      <bindings>
+        <staticBinding id="878b3824-da28-4f8e-9139-a60162dccc39">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>keyName</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8edd7d0b-53c3-4c5d-be71-af7374000d6e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>myValue</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ba943ecc-9fd2-4768-a7b8-b16150184993">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Field_1</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${keyName}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d45eb0bb-da02-4d4f-88f2-4f7f69d8fa60">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <recordKey></recordKey>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>Field_2</inputSymbol>
+          <listDelimiter></listDelimiter>
+          <value>${myValue}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="6cc64917-391f-4acd-aca4-e4abbba02846">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>6e08c6f2-4b5c-4856-aca7-f7d3486ee075</refId>
+          </destination>
+          <source>
+            <refId>1e5e93a0-9e66-4b5e-9206-161437ff0263</refId>
+          </source>
+          <positions>
+            <point>
+              <x>139.0</x>
+              <y>221.0</y>
+            </point>
+            <point>
+              <x>296.0</x>
+              <y>217.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>f3112e9d-ed88-47bf-be86-2f99e8541a33</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="6e08c6f2-4b5c-4856-aca7-f7d3486ee075">
+      <annotation>7d26a86e-1122-4828-b02a-92d32b4a8ef5.6e08c6f2-4b5c-4856-aca7-f7d3486ee075.description</annotation>
+      <name>Run SCVMM Commands</name>
+      <bounds>
+        <x>1411.0</x>
+        <y>720.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="a5d7e29b-0ce6-4d88-92f2-33a431aee95d">
+        <baseIcon>PowerShell.png</baseIcon>
+        <basePath>/Operating System/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <scriptlet id="c16d22bb-ccac-4f82-aea3-87898054edfd">
+        <annotation></annotation>
+        <name>Step Run SCVMM Commands in Flow SCVMM_deployVM (6e08c6f2-4b5c-4856-aca7-f7d3486ee075)</name>
+        <script></script>
+        <type>RHINO</type>
+      </scriptlet>
+      <bindings>
+        <staticBinding id="75a6f8af-89db-4e3a-a2ef-2bb358eec780">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <identityBinding id="e5d1a603-642a-462b-9b28-acf40986ad52">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <link>
+            <refId>e8b51d39-ef4e-4960-945e-e21729456150</refId>
+            <refName>pc.scvmm</refName>
+          </link>
+          <identityAttribute>USERNAME</identityAttribute>
+        </identityBinding>
+        <identityBinding id="75674f39-169e-4222-bafe-a9c9cb9aa48e">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <link>
+            <refId>e8b51d39-ef4e-4960-945e-e21729456150</refId>
+            <refName>pc.scvmm</refName>
+          </link>
+          <identityAttribute>PASSWORD</identityAttribute>
+        </identityBinding>
+        <staticBinding id="2d6a4ef8-1018-4241-9e50-1af3289fe149">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>authType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="43394282-dab7-4269-916d-3235aa05cf2a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>commands</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>7d26a86e-1122-4828-b02a-92d32b4a8ef5.43394282-dab7-4269-916d-3235aa05cf2a.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="7ac6f8d7-4b3e-4602-b2eb-7a1729ec9b10">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>delimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="273886f8-77ed-4120-89ba-aaab38bf63af">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>rowDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="663ebaf3-09de-4cd4-9aba-b996498f426d">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>colDelimiter</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="9c7bed90-5356-48f1-a0bc-49e052fd2194">
+          <annotation></annotation>
+          <fromContextKey>scvmm/scvmm.version</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>version</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt></prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+      </bindings>
+      <transitions>
+        <transition id="c9e52232-7713-4a77-91b4-f8b465022a69">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>294914cc-0fa2-4fc6-a0c1-cc85ab0952f6</refId>
+          </destination>
+          <source>
+            <refId>6e08c6f2-4b5c-4856-aca7-f7d3486ee075</refId>
+          </source>
+          <positions>
+            <point>
+              <x>296.0</x>
+              <y>217.0</y>
+            </point>
+            <point>
+              <x>409.0</x>
+              <y>388.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="987f0d12-22bf-42c1-8a45-5ebcfc97fb92">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e56dbbcf-5fa1-4d8d-99f8-888b53ebda54</refId>
+          </destination>
+          <source>
+            <refId>6e08c6f2-4b5c-4856-aca7-f7d3486ee075</refId>
+          </source>
+          <positions>
+            <point>
+              <x>1461.0</x>
+              <y>754.0</y>
+            </point>
+            <point>
+              <x>1625.0</x>
+              <y>754.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>1af7bf1f-fa0a-4b48-9a28-1fec4f74d7f5</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="1c19702c-2d33-4cac-99d6-3557949caad7">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>outputString</contextKey>
+          <expression id="9a059454-751c-4810-8ea1-adb54a922038">
+            <annotation></annotation>
+            <name>Result Field: outputString</name>
+            <fieldName>outputString</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3b736358-1352-41b0-b6fd-e732ac9cd309">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>warnings</contextKey>
+          <expression id="cc17c678-1fee-4ca7-862f-47245c92e53f">
+            <annotation></annotation>
+            <name>Result Field: warnings</name>
+            <fieldName>warnings</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="fef2a740-8c1d-434d-b8d4-9622c50bea18">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>exception</contextKey>
+          <expression id="c9896bd7-e65c-47a6-b821-527fefae5625">
+            <annotation></annotation>
+            <name>Result Field: exception</name>
+            <fieldName>exception</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="d45bfeb2-3d63-4b81-832f-2e156b176464">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Failuremessage</contextKey>
+          <expression id="8f6c71af-fd2e-46f9-a88d-c248a8fc56db">
+            <annotation></annotation>
+            <name>Result Field: FailureMessage</name>
+            <fieldName>FailureMessage</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="d6913e34-9ae5-4127-a0f2-61a6e71dc529">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>Result</contextKey>
+          <expression id="98050657-79ef-417e-b00c-9d1415aaf266">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="8dfa06bb-1076-4ead-a97a-9699fbcd3b54">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>returnResult</contextKey>
+          <expression id="8277ac78-0c26-40c0-b3be-369ab16416b2">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>c7162ae6-abb5-4658-848e-8a48562a5942</startSteps>
+</flow>

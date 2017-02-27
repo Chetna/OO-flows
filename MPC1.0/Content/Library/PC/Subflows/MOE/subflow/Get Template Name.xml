@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="80c398d4-2153-4335-bb1d-45ecf96fda61">
+  <descriptionCdata><![CDATA[80c398d4-2153-4335-bb1d-45ecf96fda61.8b22d017-c2db-4936-9fa2-4c9bcc9a25eb.prompt=Filter String\:
+80c398d4-2153-4335-bb1d-45ecf96fda61.94ffd533-ff90-4411-a25c-ac5d70365485.prompt=Source File\:
+80c398d4-2153-4335-bb1d-45ecf96fda61.description=<pre>Reads a file.\n\nInput Parameters\:\nsource - the full path and filename of the file to be read\nfilter - the string to filter on (leave blank for no filter). If this filter\n   is found it will return all lines that matched the filter. If no match \n   is found, no line are returned.\niterate - (true,false) if set to false, only count is returned.  If set to \n   true, then each row will be returned for each subsequent call\ndelimiter - If set to null, the file is read line by line and each line \n   becomes the returnResult. Otherwise, the delimiter is inserted between each \n   line that is read and becomes the returnResult. (note, the entire file may \n   or may not still be fully read at once, depending on size).\neofReset - If set to true than after the No More response has been returned \n   once, the operation will restart reading the file from the beginning on the \n   next call.\ncharacterSet - characterSet of the file to read from. Valid values\: UTF-8, UTF-16 and UTF-32. For invalid or empty input value the default encoding UTF-8 will be used. \n\nResponses\:\nsuccess - read file (if iterate is true, more rows are available)\nno more items - no more items are available for retrieval\nfailure - failed to read file\n\nExtra Results\:\nCOUNT - number of lines that matched filter, or if no filter specified, then\nthe total lines read\n</pre>
+]]></descriptionCdata>
+  <annotation>80c398d4-2153-4335-bb1d-45ecf96fda61.description</annotation>
+  <name>Get Template Name</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="94ffd533-ff90-4411-a25c-ac5d70365485">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>source</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>80c398d4-2153-4335-bb1d-45ecf96fda61.94ffd533-ff90-4411-a25c-ac5d70365485.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="8b22d017-c2db-4936-9fa2-4c9bcc9a25eb">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>filter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>80c398d4-2153-4335-bb1d-45ecf96fda61.8b22d017-c2db-4936-9fa2-4c9bcc9a25eb.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="b9728cb5-21de-4732-8e25-0f172e7caf29">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>iterate</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>true</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b5cc3cc3-425c-49ee-95c6-cf8763ab59ca">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>delimiter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>
+</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <scriptlet id="6141e2cd-fd73-4822-af5e-1bb543f7099c">
+    <annotation></annotation>
+    <name>Operation Get Template Name (a3b87aa2-aaa1-4990-88c7-407563ec90fa)</name>
+    <script>scriptletContext.put(&quot;COUNT&quot;, scriptletRawResult[&apos;COUNT&apos;]);</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="7cb062c2-fde3-491d-b98c-355a584ebbed">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="21595f5b-18dd-45d3-8fda-b5114a5f447b">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="bf99ca1e-071d-4c51-98f4-0b75580e96f3">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>-1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="7e0209b9-be08-44a8-a623-bc7699e105a1">
+      <annotation></annotation>
+      <name>no more items</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="5fd042c2-a205-4def-81d4-7a2cf194a312">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="b90934bd-f8d2-4ba6-a7ec-75aad55c1955">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="40fddf9c-afee-4b89-964c-630c18ca3e9f">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="e3b574f9-39a0-46e1-b34f-958160e1a454">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="3af7da3c-e2f3-4980-a681-fb71bcc867a1">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="937c2ed6-6c11-4743-a2b4-350827ee2714">
+    <annotation></annotation>
+    <name></name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="3c1b187c-f009-499d-9272-ea638cfd38f4">
+    <baseIcon>document_text.png</baseIcon>
+    <basePath>Operating System/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="9d38842f-c7bb-4116-8110-2f2bf894bc02">
+        <baseIcon>view.png</baseIcon>
+        <basePath>Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>023c9848-ce6d-4637-b16d-6cde4179d02a</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="98318c2f-248c-49c8-9c26-9df85f52fbc3">
+  <descriptionCdata><![CDATA[98318c2f-248c-49c8-9c26-9df85f52fbc3.45b97258-986c-4eb0-b8df-7996a7bd9471.description=<pre>\nThis operation does not do anything. It can be used to filter flow variables by defining them as inputs and filtering them in the Results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. It contains the value of  "field1" as it was specified at input or when filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Get Cluster Monitoring Config</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="4362b927-8f7e-4e37-a1bd-ff8cf6886998">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>SVC_SUBSCRIPTION_ID</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="6bda1870-394b-4c90-a272-d4b4b4f1b061">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>serverGroupComponentId</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="82c7e0ee-ba55-4a50-b838-3dd5a203a67d">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>userIdentifier</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="c11ba228-7974-4f67-bc22-9179e4e4429b">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>hostname</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="8969149a-e3f9-4183-8cda-46cf1ba459c4">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="e1e121a3-2244-474c-90d8-6d681ad4e326">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="8dfc6b7f-cdc4-4271-a85b-acef3b635092">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="42570ce1-5cda-4efc-8697-8f992559ebaf">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="98451cbd-038b-4054-b2bf-66d5fcc7485c">
+      <annotation></annotation>
+      <name>Get Cluster Name</name>
+      <bounds>
+        <x>69.0</x>
+        <y>146.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="42a024f3-47d3-4a13-b876-15463d3ab7de">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>SVC_SUBSCRIPTION_ID</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SVC_SUBSCRIPTION_ID}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="05852114-5325-4354-b8c5-ffe8917723e9">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5578220-45ad-4ca2-8114-8a77e3a7a25f</refId>
+          </destination>
+          <source>
+            <refId>98451cbd-038b-4054-b2bf-66d5fcc7485c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>259.0</x>
+              <y>137.0</y>
+            </point>
+            <point>
+              <x>259.0</x>
+              <y>343.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="d867ce20-cfac-4aaf-9363-61e46fe0478d">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>faa5332c-9ccf-4d8b-a3ef-3a519eee355f</refId>
+          </destination>
+          <source>
+            <refId>98451cbd-038b-4054-b2bf-66d5fcc7485c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>259.0</x>
+              <y>137.0</y>
+            </point>
+            <point>
+              <x>412.0</x>
+              <y>119.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>55703fc1-ae66-41a8-b4a9-4bdc1f98f2c1</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="a27d0477-99be-4602-97a1-1d97bb53558f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>clusterName</contextKey>
+          <expression id="56cbcdd7-a418-4050-9e93-2869b5e28d82">
+            <annotation></annotation>
+            <name>Result Field: clusterName</name>
+            <fieldName>clusterName</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="b5578220-45ad-4ca2-8114-8a77e3a7a25f">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>69.0</x>
+        <y>352.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="3a8f737c-b54c-40b9-85f8-024d93013d5e">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5578220-45ad-4ca2-8114-8a77e3a7a25f</refId>
+          </destination>
+          <source>
+            <refId>b5578220-45ad-4ca2-8114-8a77e3a7a25f</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="0f5191db-ddb1-448e-b2de-0bc8d7500631">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>672.0</x>
+        <y>146.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="04ba1861-2eea-48cd-9267-b282bcb42e2b">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>0f5191db-ddb1-448e-b2de-0bc8d7500631</refId>
+          </destination>
+          <source>
+            <refId>0f5191db-ddb1-448e-b2de-0bc8d7500631</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="faa5332c-9ccf-4d8b-a3ef-3a519eee355f">
+      <annotation></annotation>
+      <name>Get Cluster Node List</name>
+      <bounds>
+        <x>220.0</x>
+        <y>146.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="f3c4cb11-0169-4695-b79d-dfcf877759a3">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>SVC_SUBSCRIPTION_ID</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SVC_SUBSCRIPTION_ID}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="c4d59ea1-b6c5-4515-a9ad-a68a04d6e67e">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5578220-45ad-4ca2-8114-8a77e3a7a25f</refId>
+          </destination>
+          <source>
+            <refId>faa5332c-9ccf-4d8b-a3ef-3a519eee355f</refId>
+          </source>
+          <positions>
+            <point>
+              <x>412.0</x>
+              <y>119.0</y>
+            </point>
+            <point>
+              <x>259.0</x>
+              <y>343.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2746dbb6-2f30-4646-bf80-e2f567178702">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>fb342a75-6d56-4e96-ada3-a0f62420321d</refId>
+          </destination>
+          <source>
+            <refId>faa5332c-9ccf-4d8b-a3ef-3a519eee355f</refId>
+          </source>
+          <positions>
+            <point>
+              <x>270.0</x>
+              <y>179.0</y>
+            </point>
+            <point>
+              <x>426.0</x>
+              <y>174.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>31d9e444-6aed-4fe4-be93-246c9499a6da</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="6fe33f74-1e06-46dc-bdf0-3a9808656bdd">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>nodeList</contextKey>
+          <expression id="b42e78fc-eb1c-4c02-9383-baa19b756f7c">
+            <annotation></annotation>
+            <name>Result Field: nodeList</name>
+            <fieldName>nodeList</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="45b97258-986c-4eb0-b8df-7996a7bd9471">
+      <annotation>98318c2f-248c-49c8-9c26-9df85f52fbc3.45b97258-986c-4eb0-b8df-7996a7bd9471.description</annotation>
+      <name>Assemble Config File</name>
+      <bounds>
+        <x>527.0</x>
+        <y>146.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="fa6b074c-2edd-4f0d-b0da-9fd9865a17ff">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field1</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>#@(#)$Revision: 714 $
+#@(#)$LastChangedDate: 2013-04-22 09:30:23 +0800 (Mon, 22 Apr 2013) $
+#@(#)$LastChangedBy: wajiangu $
+#******************************************************************************
+# Cluster Monitoring
+#******************************************************************************
+
+[CLUSTER_GLOBAL_AREA]
+# Parameter Area for Global settings
+#CLUSTERTYPE = VERITAS		#VERITAS - switch on the support for Veritas Cluster Servers
+#				#FAILOVERCLUSTERS - With windows 2012+, component &quot;Failover Cluster Command Interface&quot;
+#					   By default is not intsalled, this vaiable enable to use powershell
+#					   to fetch cluster related information instead of command cluster
+CLUSTERNAME = ${clusterName}          # cluster name
+${monitoringNodesSnippet}
+INTERVAL = 5                    # Monitoring Interval
+DEFAULT_ALERT_TYPE = T		# This Alert-Type will be taken if there
+				# is NO Alert-Type defined
+#LOGFILE = c:\osit\log\cl_mon.log
+MON_TYPE = LOGFILE
+HOUSE_KEEPING = MONTHLY
+# HOUSE_KEEPING: DAILY, WEEKLY, MONTHLY, SIZE_100K, SIZE_500K
+#   =&gt; rename logfile to logfile.&lt;timestamp&gt; every DAY, WEEK, ...
+#      or depending on the logfile size
+ACCESS_MODE = LOCAL		#LOCAL/DOMAIN - The account type(local/domain) will be used to schedule task, by default use value of DOMAIN
+#INFO_FETCH_TYPE = WMI		#WMI/WINRS/RCMD - By default using RCMD to get information of cluster disks on remote node
+#CSV_GROUP_ALIAS = CSV GROUP	#Suppose all CSV(CLUSTER SHARED VOLUMES) belong to this group for Windows Failover Cluster, 
+				#all CLUSTER_GROUP defined blow for resource CSV should be consistent with this one.
+#GROUP_MAPPING_VALIDATION = Y	# Y/N - Y means to validate if there is queue mapping entry defined under section [ITO2EWM_MAPPINGS_AREA]
+				# for cluster group defined under section [CLUSTER_GROUP_AREA], by default N is taken
+#GROUP_SWITCH_CHECK = Y		# Y/N - Y means to monitor group switch event, by default N is taken
+#EXCLUDED_NODE = TAEBUY02,TAEBUY04	#Ignore monitoring node status when not up for maintenance etc
+#REARM = TRUE
+
+
+[CLUSTER_GROUP_AREA]
+# Define Cluster Groups (The NODE-column will be ignored)
+# A given alert-type will overwrite the default alert type for this group
+# (except &quot;B&quot; will always be replaced by the default alert type)
+# Wildcard * is allowed for RES_MON_TYPE AUTO only to have all the cluster groups monitored, this must be
+# the last line of this section to avoid overwriting the explicitly defined cluster group items
+# CLUSTER_GROUP    SEVERITY  [NODE]     DAYS       FROM  TO  RES_MON_TYPE [ALERT]
+#-----------------------------------------------------------------------------
+#&quot;SAP-R/3 JP1&quot;      Warning               1-5       0600  2400     AUTO      
+#&quot;Cluster Group&quot;    Critical              *         0000  2400     AUTO      
+#&quot;TAEBSQ1&quot;          Critical              *         0000  2400     AUTO      
+#&quot;CSV GROUP&quot;        Critical              *         0000  2400     AUTO      
+#&quot;*&quot;		    Critical              *         0000  2400     AUTO      
+#
+
+# An OVSC Incident can only be created against an existing OVSC CI.
+# Information like the initial assignment group in OVSC are stored in the CI record.
+# By default OVSC incidents are created against the Server CI &quot;&lt;Nodename&gt;&quot;.
+# You can address Application CI &quot;&lt;EventType&gt;:&lt;Nodename&gt;&quot; or 
+# &lt;EventTypeInstance&gt;:&lt;EventType&gt;:&lt;Nodename&gt;&quot; by specifying values for &lt;EventType&gt; 
+# and (optional) &lt;EventTypeInstance&gt;.
+# The &lt;EventType&gt; parameter must be defined using World Wide agreed Application Codes, 
+# e.g. SAP (for SAP R/3), ORA (for Oracle), EXC (for MS Exchange) 
+# For a complete list of Application Codes see http://ent121.sharepoint.hp.com/teams/wwsolutions/release/OVOU-CMA/default.aspx
+# The &lt;EventTypeInstance&gt; is optional, but should be used for SAP and Database instances.
+# The &lt;EventTypeInstance&gt; value should match the SID/Instance value of the 
+# Software entry in the CMDB (e.g. ESL)
+# 
+# The format is [GROUP], [EVENT TYPE], [EVENT TYPE INSTANCE] &quot;CUSTOM TEXT&quot;
+# i.e.	    &quot;SAP-R/3 JP1&quot;	[ORACLE],[ORA], [P01] &quot;http://support.hp.com&quot;
+#		    &quot;Cluster Group&quot;	[SAP], [SAP], [PXY] &quot;please review the XX doc&quot;
+#		    &quot;TAEBSQ1&quot;		[EXCHANGE], [EXC]
+
+[ITO2EWM_MAPPINGS_AREA]
+# Wildcard * is allowed and must be the last line of this section to avoid overwriting the explicitly defined mapping
+#CLUSTER_GROUP    ITO2EWM TEAM-MAPPING
+#-----------------------------------------------------------------------------
+#&quot;SAP-R/3 JP1&quot;     NT_PLATFORM 
+#&quot;Cluster Group&quot;   CLUSTER
+#&quot;TAEBSQ1&quot;         SQL
+#&quot;CSV GROUP&quot;       CSV
+#&quot;*&quot;		   TEAMMAPPING
+#
+
+[CLUSTER_RESSOURCE_AREA]
+# Cluster Ressources Monitoring 
+# This area must exist if in [CLUSTER_GROUP_AREA] the RES_MON_TYPE
+# CONF (Configurable) exists.
+#     RESSOURCE_MON_TYPE        Type of Cluster ressource Monitoring
+#         Type: OFF  =&gt; ressources of the Groups are not monitored
+#         Type: AUTO =&gt; all available ressources of the Group must be online
+#         Type: CONF =&gt; all configured ressources of the Group must be online
+#               Additional Configuration Lines are necessary
+#         Default (without Parameter is Automatic)
+# All listed Cluster Ressources must be &quot;ONLINE&quot; otherwise =&gt; call
+#
+# [Duration] is optional, if this variable is set and has a integer value greater or equal 5,
+# an alert will only be written to the log file if the cluster resource in status
+# offline or failed for &lt;DURATION&gt; minutes. If this variable is 0 or omitted, an alert
+# will be written to the log file as soon as a cluster resource offline/failed status detected.
+
+# RESSOURCE_NAME  [Duration]  SEVERITY  CLUSTER_GROUP       DAYS  FROM  TO [ALERT]
+#---------------------------------------------------------------------------
+#&quot;Disk R:&quot;           5	      Critical  &quot;GRP_APPL_QUORUM&quot;    *    0000  2359 T
+#&quot;Disk C:&quot;           	      Critical  &quot;GRP_APPL_QUORUM&quot;    *    0000  2359 N
+#&quot;WebI ORB&quot;          	      Warning   &quot;GRP_APPL_QUORUM&quot;    *    0000  2359 NT
+#&quot;WebI Manager&quot;      	      Warning   &quot;GRP_APPL_QUORUM&quot;    *    0000  2359
+#&quot;BusinessObjects&quot;            Warning   &quot;GRP_APPL_QUORUM&quot;    *    0000  2359
+#&quot;CS VLM1&quot;   	              Warning   &quot;CSV GROUP&quot;	     *    0000  2359
+
+
+[CLUSTER_DISK_AREA]
+# if this area does not exist =&gt; no further monitoring of the 
+# clustered disks
+# check if this disks are available ANYWHERE on the cluster, 
+# independent of the nodes and check the freespace.
+# A monitoring of the normal disks (local disks) is done via 
+# an other monitor (df_mon) on each cluster node and not part of 
+# this monitoring.
+#
+# [Duration] is optional, if this variable is set and has a integer value greater or equal 5,
+# an alert will only be written to the log file if the cluster disk not accessible event detected
+# for &lt;DURATION&gt; minutes long. If this variable is 0 or omitted, an alert
+# will be written to the log file as soon as a cluster disk not accessible event detected.
+
+# DISK  RESSOURCE_NAME  [Duration]  SEVERITY   THRESHOLD   UNIT   DAYS    FROM    TO [ALERT]
+#-------------------------------------------------------------------------------
+#&quot;k:&quot;    &quot;Disk k:&quot;          15       Critical       10      %     *        0000    2359
+#&quot;p:&quot;    &quot;Disk p:&quot;                   Critical       1700    MB    *        0000    2359
+#&quot;q:&quot;    &quot;Disk q:&quot;                   Critical       2       GB    *        0000    2359
+#&quot;Z:\MP&quot; &quot;Clusterdisk 6&quot;             Major          10      %     *        0000    2400
+#&quot;?:&quot;	 &quot;LUN006_SPARE&quot;              Critical       10      %     *        0000    2400
+
+
+[CLUSTER_SHARED_VOLUME_AREA]
+# if this area does not exist =&gt; no further monitoring of the 
+# clustered shared volumes
+# check if this volumes are available ANYWHERE on the cluster, 
+# independent of the nodes an
+#</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1974dfdc-0c31-4509-863b-902543b7d74d">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field2</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="54281c6c-ae9d-405d-b55d-8238907ad884">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field3</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a0329879-6837-4e6c-9fd2-fdcb2e6b745d">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>field4</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="a9913ed4-0e36-4cbd-a5eb-5ae8f688d75a">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>0f5191db-ddb1-448e-b2de-0bc8d7500631</refId>
+          </destination>
+          <source>
+            <refId>45b97258-986c-4eb0-b8df-7996a7bd9471</refId>
+          </source>
+          <positions>
+            <point>
+              <x>713.0</x>
+              <y>175.0</y>
+            </point>
+            <point>
+              <x>898.0</x>
+              <y>179.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="ab1b1862-6b83-4161-a90d-77c47791955f">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>cfgFile</contextKey>
+          <expression id="8488a84e-f5cf-4b8f-a897-6e370611c57f">
+            <annotation></annotation>
+            <name>Input: field1</name>
+            <fieldName>field1</fieldName>
+            <sourceType>INPUT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="fb342a75-6d56-4e96-ada3-a0f62420321d">
+      <annotation></annotation>
+      <name>Get Cluster Node List for Monitoring</name>
+      <bounds>
+        <x>376.0</x>
+        <y>146.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="6471a5d0-861e-4b3b-9b32-abff4e0501ff">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>serverGroupComponentId</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${serverGroupComponentId}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="945d083d-915a-488a-aa7f-dbb45582daae">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>userIdentifier</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${userIdentifier}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e8eb0a94-de57-433a-9e4b-d432bc2573ac">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>nodeList</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${nodeList}</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="feb5f5b1-37d5-4f49-af52-d528e82499f5">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b5578220-45ad-4ca2-8114-8a77e3a7a25f</refId>
+          </destination>
+          <source>
+            <refId>fb342a75-6d56-4e96-ada3-a0f62420321d</refId>
+          </source>
+          <positions>
+            <point>
+              <x>426.0</x>
+              <y>174.0</y>
+            </point>
+            <point>
+              <x>119.0</x>
+              <y>386.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="4836f5c6-f277-471b-9a57-a778f003cf9d">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>45b97258-986c-4eb0-b8df-7996a7bd9471</refId>
+          </destination>
+          <source>
+            <refId>fb342a75-6d56-4e96-ada3-a0f62420321d</refId>
+          </source>
+          <positions>
+            <point>
+              <x>426.0</x>
+              <y>180.0</y>
+            </point>
+            <point>
+              <x>577.0</x>
+              <y>181.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>ac9f41e8-6d9b-48fa-9c07-1b4ef9387a2f</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="d15e900a-8e9c-4bcc-9de4-46fadd113997">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>monitoringNodesSnippet</contextKey>
+          <expression id="ea806167-0476-45ca-8b1f-f620c0f72317">
+            <annotation></annotation>
+            <name>Result Field: monitoringNodesSnippet</name>
+            <fieldName>monitoringNodesSnippet</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>98451cbd-038b-4054-b2bf-66d5fcc7485c</startSteps>
+</flow>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="ddc97106-7b04-478c-8934-29438f0f8e20">
+  <descriptionCdata><![CDATA[ddc97106-7b04-478c-8934-29438f0f8e20.description=<pre>This is an operation check whether field2 is not empty(should be an ip address) while filed1 is an ip address.\nadd\nInputs\:\nfield1 - vlanglobalid.\nfield2 - rsv_ip.\nfield3 - optional input that can be used for filtering flow variables.\nfield4 - optional input that can be used for filtering flow variables.\n\nResponses\:\nsuccess - field1 is not an up or borh field1 & field2 are ip.\nfailure - field1 is an ip but field2 is not\n</pre>
+]]></descriptionCdata>
+  <annotation>ddc97106-7b04-478c-8934-29438f0f8e20.description</annotation>
+  <name>IPAM_ReturnIPCheck</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="d36c88cb-b156-4cbc-8bdd-2d3ea0c200a0">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>field1</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2ec84de2-1837-480d-be8c-f83e641d3c91">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>field2</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8ee4ce99-4c7c-4797-900a-08cee8ae326b">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_1</inputSymbol>
+      <listDelimiter></listDelimiter>
+      <value>${field1}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b81341bd-6886-4773-aeea-2315cdf357f7">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_2</inputSymbol>
+      <listDelimiter></listDelimiter>
+      <value>${field2}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8b1c018d-a033-4dd7-977f-5683f1518778">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_3</inputSymbol>
+      <listDelimiter></listDelimiter>
+      <value>${field3}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="930a11a7-448c-4079-b2ef-e3d6c3d04512">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_4</inputSymbol>
+      <listDelimiter></listDelimiter>
+      <value>${field4}</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="0026bee3-a831-4828-9901-4a9a52f114d2">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="71cf4275-7427-481a-8320-859eec29bbb4">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="f68e6043-db84-4b7a-9492-a9a4b88a9489">
+          <annotation></annotation>
+          <name>Field 1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <regexEvaluator id="8939f1ea-7037-4dbc-8dff-5e7d032c563a">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <entireString>true</entireString>
+            <expression>[\d|\w].*</expression>
+            <ignoreCase>false</ignoreCase>
+            <multiLine>false</multiLine>
+            <regType>PERL5</regType>
+          </regexEvaluator>
+          <filters/>
+        </expression>
+        <expression id="38da508c-7e1f-4695-826d-76f8958618ef">
+          <annotation></annotation>
+          <name>Field 1</name>
+          <fieldName>Field_2</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="bbfcc239-592f-4684-8117-77175cf21fc5">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>.</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>MATCH_NONE_OF_THE_WORDS</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="9f4ff042-9b42-48a3-a3b0-dfb28a75301c">
+    <annotation></annotation>
+    <name></name>
+    <fieldName>Field_2</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="b4be2988-a71e-4b84-baed-f16073a2e9b9">
+    <baseIcon>branch_element.png</baseIcon>
+    <basePath>/Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+</operation>

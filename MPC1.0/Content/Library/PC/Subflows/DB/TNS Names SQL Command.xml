@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="2704263d-cf32-4efe-865f-b90cd2a336a7">
+  <descriptionCdata><![CDATA[2704263d-cf32-4efe-865f-b90cd2a336a7.1eca9a55-d448-4059-b794-fc21921bd4ae.prompt=SQL Command\:
+2704263d-cf32-4efe-865f-b90cd2a336a7.1f15d073-2ebe-435e-99e3-60dd5b03d953.prompt=TNSEntry\:
+2704263d-cf32-4efe-865f-b90cd2a336a7.79e59e4f-df0a-4aab-b1e0-c3a94972baf9.prompt=Password\:
+2704263d-cf32-4efe-865f-b90cd2a336a7.906ff71b-847d-4336-b014-e504295f5226.prompt=UserName\:
+2704263d-cf32-4efe-865f-b90cd2a336a7.description=<pre>Runs a SQL command against an Oracle database, using the information available in the tnsnames.ora file.   \nDoes not return any results (only whether the command was executed)\n\nInput Parameters\:\nTNSPath - The path to the parent folder of the TNS file which contains the DB connecting info(the name of the DB server, the port used for connecting to the DB server, the database name)\nTNSEntry - the entry name from the tnsnames.ora file which contains the connecting information\nUsername - username to connect as\nPassword - password\nCommand - the command to execute\n\nResponses\:\nmore items - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nupdateCount - the update count of the command executed\n\nNOTE\: \nThis op supports only Oracle. The tnsnames.ora file should correctly configured on the RAS machine.\n\nORACLE NOTE\:\nIt is possible to run PL/SQL procedures using this operation. The examples below present the syntax to be used for having the same effect as the following PL/SQL script\:\nBEGIN\n  send_message(addressee\=>'b@hp.com',sender\=>'pas@hp.com',subject\=>'Test',message\=>'Test');\nEND;\n\nExample 1\: BEGIN send_message(addressee\=>'b@hp.com',sender\=>'pas@hp.com',subject\=>'Test',message\=>'Test');END;\n\nExample 2\: BEGIN send_message('b@hp.com','pas@hp.com','Test','Test');END;\n\nExample 3\: {CALL send_message(addressee\=>'b@hp.com',sender\=>'pas@hp.com',subject\=>'Test',message\=>'Test')}\n\nExample 4\: {CALL send_message('b@hp.com','pas@hp.com','Test','Test')}\n</pre>
+2704263d-cf32-4efe-865f-b90cd2a336a7.fed22444-c9f8-4dac-8180-a04b534a68b8.prompt=TNSPath\:
+]]></descriptionCdata>
+  <annotation>2704263d-cf32-4efe-865f-b90cd2a336a7.description</annotation>
+  <name>TNS Names SQL Command</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="fed22444-c9f8-4dac-8180-a04b534a68b8">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>TNSPath</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>2704263d-cf32-4efe-865f-b90cd2a336a7.fed22444-c9f8-4dac-8180-a04b534a68b8.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="1f15d073-2ebe-435e-99e3-60dd5b03d953">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>TNSEntry</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>2704263d-cf32-4efe-865f-b90cd2a336a7.1f15d073-2ebe-435e-99e3-60dd5b03d953.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="906ff71b-847d-4336-b014-e504295f5226">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Username</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>2704263d-cf32-4efe-865f-b90cd2a336a7.906ff71b-847d-4336-b014-e504295f5226.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="79e59e4f-df0a-4aab-b1e0-c3a94972baf9">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>2704263d-cf32-4efe-865f-b90cd2a336a7.79e59e4f-df0a-4aab-b1e0-c3a94972baf9.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="1eca9a55-d448-4059-b794-fc21921bd4ae">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Command</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>2704263d-cf32-4efe-865f-b90cd2a336a7.1eca9a55-d448-4059-b794-fc21921bd4ae.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="f8f577ef-d30c-4056-92d4-c9e50b46dd3e">
+      <annotation></annotation>
+      <name>more items</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="2e46dc40-8378-41e0-b46c-ca73b1cc01af">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="4d6a835f-58fb-490c-b6d8-12e0f56cb0d7">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="fdc57382-805e-4635-80a6-ca94305e9530">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="4791e563-e67d-46f6-aa6c-979121b53e91">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="fdb2518f-f2a5-4298-8127-91947773f329">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>-1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="c5780900-3060-4ef5-95fc-859b107ef1cc">
+    <annotation></annotation>
+    <name>returnCode</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="face4766-9689-421e-a745-b404b745274b">
+    <baseIcon>database_green.png</baseIcon>
+    <basePath>/Databases/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>f2af6640-e75d-4e6f-856c-22982b571018</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

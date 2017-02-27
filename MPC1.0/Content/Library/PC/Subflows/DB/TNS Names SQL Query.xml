@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="e318e73a-2ba6-4db1-99ab-c7003f2bf7ac">
+  <descriptionCdata><![CDATA[e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.1a21f656-70d4-4e5b-a60d-44c3fa45fb3b.prompt=TNSPath\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.4a07015f-fc3c-4c78-b738-407a868fd1ed.prompt=Password\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.51a6f15f-3c56-40b7-9a0a-81d4da858d93.prompt=TNSEntry\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.83d6ed45-77f5-4fe2-9b1c-a648d796359a.prompt=Row Delimiter\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.95d6a3e7-5dce-42d7-9311-226a31e8e320.prompt=UserName\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.bbd6aba4-08bc-4bef-8c45-3ce038a54f97.prompt=Session Key Name\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.dc2e7a45-8055-4969-8e19-440258ec964d.prompt=SQL Command\:
+e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.description=<pre>Runs a SQL query against an Oracle database, using the information available in the tnsnames.ora file.  \nThe first row is returned on the first run of the operation.\nSubsequent calls with the same information will return the other rows.\n\nInputs\:\nTNSPath - The path to the parent folder of the TNS file which contains the DB connecting info(the name of the DB server, the port used for connecting to the DB server, the database name).\nTNSEntry - The entry name from the tnsnames.ora file which contains the connecting information.\nUsername - The username used for connecting to the database.\nPassword - The password used for connecting to the database.\nCommand - The command to execute.\nDelimiter - Delimiter to use between columns in returnResult.\nKey - Key to help keep multiple query results distinct.\n\nResponses\:\nmore items - More rows are available for retrieval.\nno more items - No more rows are available.\nfailure - There was an error executing the command.\n\nExtra Results\:\ncolumnNames - The names of all the columns returned, separated by Delimiter.\nrowsLeft - The number of rows remaining that match the query.\n\nNOTE\: \nThis op supports only Oracle. The tnsnames.ora file should be correctly configured on the RAS machine.\n\nORACLE NOTE\:\nOnly the "SELECT" statement can be executed using this operation. For statements that modify the database, use "TNS Names SQL Command".\n</pre>
+]]></descriptionCdata>
+  <annotation>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.description</annotation>
+  <name>TNS Names SQL Query</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="1a21f656-70d4-4e5b-a60d-44c3fa45fb3b">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>TNSPath</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.1a21f656-70d4-4e5b-a60d-44c3fa45fb3b.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="51a6f15f-3c56-40b7-9a0a-81d4da858d93">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>TNSEntry</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.51a6f15f-3c56-40b7-9a0a-81d4da858d93.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="95d6a3e7-5dce-42d7-9311-226a31e8e320">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Username</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.95d6a3e7-5dce-42d7-9311-226a31e8e320.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="4a07015f-fc3c-4c78-b738-407a868fd1ed">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.4a07015f-fc3c-4c78-b738-407a868fd1ed.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="dc2e7a45-8055-4969-8e19-440258ec964d">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Command</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.dc2e7a45-8055-4969-8e19-440258ec964d.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="83d6ed45-77f5-4fe2-9b1c-a648d796359a">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Delimiter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.83d6ed45-77f5-4fe2-9b1c-a648d796359a.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="bbd6aba4-08bc-4bef-8c45-3ce038a54f97">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Key</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>e318e73a-2ba6-4db1-99ab-c7003f2bf7ac.bbd6aba4-08bc-4bef-8c45-3ce038a54f97.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="0d26b73e-a5fb-4a39-b734-74fcc35ac150">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>overrideJRAS</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>/Configuration/Remote Action Services/RAS_LOCAL</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="4f152709-3dc6-40ff-937f-59c2b1b0977a">
+      <annotation></annotation>
+      <name>more items</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="ae4b2180-63bc-4e7e-8254-e7f2d721dd89">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="033300a2-70d1-4c64-930d-55484bb80279">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="6a84ab18-1e86-441f-88c7-ccd10d3f7ff2">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="65efe071-7d1f-4848-9af9-488e81ab2504">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="16672335-366d-4585-80d6-ee8a2f36f58a">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>-1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="00f0cfff-9c24-405c-b2c4-e561b31f488a">
+      <annotation></annotation>
+      <name>no more items</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="4cd3e5ba-2219-4ee4-8dba-c5da94c0e612">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="e4c99cc9-01f3-4d78-b44a-c5c70506779e">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="57db4782-4a87-4a56-8e20-f2355bc08873">
+    <annotation></annotation>
+    <name>returnCode</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="ae719f86-8823-4e04-bb1d-bd6a66167455">
+    <baseIcon>database_green.png</baseIcon>
+    <basePath>/Databases/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>e17253d4-82a9-4b5d-a524-97fcf6d693e8</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

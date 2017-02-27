@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af">
+  <descriptionCdata><![CDATA[cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.8585d0ea-7325-4602-8b9d-83db2d29b8f5.prompt=Password\:
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.85b91038-df6f-4a1f-8c3c-427544a15260.description=<pre>Runs an SSH command\n\nInput Parameters\:\nhost - hostname or IP address\ncommand - the command to execute\npty - (true, false) whether to use pty (may mangle stdout and stderr if set to true)\nusername - username to connect as\npassword - password\nprivateKeyFile - The absolute path to the private key file for remote host.\ntimeout - (optional, default 90 seconds) time in milliseconds to wait for the command to complete\n\nResponses\:\nsuccess - the command was executed successfully\nfailure - the command could not be executed\n\nExtra Results\:\nSTDERR - the STDERR of the command\nSTDOUT - the STDOUT of the command\n</pre>
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.9382adaa-61a7-454b-9900-eb3a1c986b8d.prompt=Username
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.9f522ddd-5b47-4396-8c9d-37d672012aa6.prompt=Password
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.ae187dbf-5982-48d9-affb-6957a5961386.prompt=UserName\:
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.b9bc32c3-0f9e-4c8d-96d1-9001a0aec6c2.prompt=Hostname
+cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.f0fe1216-8a30-456e-acfa-7a31180d15f2.prompt=HostName\:
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Add Entries to Hostfile</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="b9bc32c3-0f9e-4c8d-96d1-9001a0aec6c2">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>_hostname</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.b9bc32c3-0f9e-4c8d-96d1-9001a0aec6c2.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="9382adaa-61a7-454b-9900-eb3a1c986b8d">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>_username</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.9382adaa-61a7-454b-9900-eb3a1c986b8d.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="9f522ddd-5b47-4396-8c9d-37d672012aa6">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>_password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.9f522ddd-5b47-4396-8c9d-37d672012aa6.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="6ae19830-bc1c-4e87-98c4-6f419afba293">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="1f7ddb4c-3b32-485d-b499-03099a6db152">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="f570cbb4-2b05-45cf-a56f-87fedeb10bde">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="22671e05-5795-4415-b0b8-e4f41b1c7724">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="85b91038-df6f-4a1f-8c3c-427544a15260">
+      <annotation>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.85b91038-df6f-4a1f-8c3c-427544a15260.description</annotation>
+      <name>Add Records to hosts file</name>
+      <bounds>
+        <x>113.0</x>
+        <y>65.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <userInputBinding id="f0fe1216-8a30-456e-acfa-7a31180d15f2">
+          <annotation></annotation>
+          <fromContextKey>_hostname</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.f0fe1216-8a30-456e-acfa-7a31180d15f2.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="44aa3d2f-19ac-4301-b3ea-88ecf25d5e44">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>command</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>if [ $(grep -c &quot;^#BUR SERVERS&quot; /etc/hosts) != &quot;0&quot; ]; then
+               echo &quot;BUR servers seem to be already defined in /etc/hosts. Please check!&quot;
+               exit 1
+else
+               cp -p /etc/hosts /etc/hosts.$(date +%Y%m%d) || exit 2
+               cat &gt;&gt;/etc/hosts &lt;&lt; EOF
+
+#BUR SERVERS
+15.84.32.230        edc-dpcell1.edc.ecs.hp.com        edc-dpcell1
+15.84.32.236        edc-dpcell2.edc.ecs.hp.com        edc-dpcell2
+15.84.32.235        edc-dpcellc.edc.ecs.hp.com        edc-dpcellc
+15.84.32.231        edc-dpmom1.emea.omc.hp.com        edc-dpmom1
+15.84.32.232        edc-dpmom2.emea.omc.hp.com        edc-dpmom2
+15.84.32.233        edc-dpmom-vip.emea.omc.hp.com        edc-dpmom-vip
+15.84.32.234        edc-dpapa1.emea.omc.hp.com        edc-dpapa1
+15.84.32.12        edc-dpeaoc1.emea.omc.hp.com        edc-dpeaoc1
+15.84.32.50        edc-dppeao1.emea.omc.hp.com        edc-dppeao1
+15.84.32.130        edc-dpseao1.emea.omc.hp.com        edc-dpseao1
+15.84.32.37        edc-dpeaovip.emea.omc.hp.com        edc-dpeaovip
+15.84.32.13        edc-dphbmc1.emea.omc.hp.com        edc-dphbmc1
+15.84.32.51        edc-dpphbm1.emea.omc.hp.com        edc-dpphbm1
+15.84.32.179        edc-dpshbm1.emea.omc.hp.com        edc-dpshbm1
+15.84.32.38        edc-dphbmvip1.emea.omc.hp.com        edc-dphbmvip1
+15.84.32.220        edc-dpdev1.emea.omc.hp.com        edc-dpdev1
+15.84.32.223        deg-dpdev1.emea.omc.hp.com        deg-dpdev1
+15.84.32.225        edc-dpdev2.emea.omc.hp.com        edc-dpdev2
+15.84.32.211        deg-dpdev2.emea.omc.hp.com        deg-dpdev2
+15.84.32.15     edc-dpeaoc2.emea.omc.hp.com     edc-dpeaoc2
+15.84.32.40     edc-dpeaovp2.emea.omc.hp.com    edc-dpeaovp2
+15.84.32.53     edc-dpceao2.emea.omc.hp.com     edc-dpceao2
+15.84.32.181    deg-dpceao2.emea.omc.hp.com     deg-dpceao2
+15.84.32.39     edc-dpsbvip1.emea.omc.hp.com    edc-dpsbvip1
+15.84.32.14     edc-dpsbc1.emea.omc.hp.com      edc-dpsbc1
+15.84.32.52     edc-dppsb1.emea.omc.hp.com      edc-dppsb1
+15.84.32.180    edc-dpssb1.emea.omc.hp.com      edc-dpssb1
+15.84.32.240        edc-dpcellc3.emea.omc.hp.com        edc-dpcellc3
+15.84.32.237        edc-dpcell3.emea.omc.hp.com        edc-dpcell3
+15.84.32.238        deg-dpcell3.emea.omc.hp.com        deg-dpcell3
+15.84.32.239        edc-dpcellvp3.emea.omc.hp.com        edc-dpcellvp3
+EOF
+fi
+
+if [ $(grep -c &quot;^#BUR SERVERS&quot; /etc/hosts) = &quot;1&quot; ]; then
+               echo &quot;BUR servers were defined successfully in /etc/hosts!&quot;
+               exit 0
+else
+               echo &quot;ERROR: Could not add BUR servers to /etc/hosts!&quot;
+               exit 3
+fi
+</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1d60c312-06d8-4aa4-8cdc-3aac2d6c6709">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>pty</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="ae187dbf-5982-48d9-affb-6957a5961386">
+          <annotation></annotation>
+          <fromContextKey>_username</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.ae187dbf-5982-48d9-affb-6957a5961386.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="8585d0ea-7325-4602-8b9d-83db2d29b8f5">
+          <annotation></annotation>
+          <fromContextKey>_password</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>cb3dc6ad-ab7b-4e7a-9adb-9bbc023645af.8585d0ea-7325-4602-8b9d-83db2d29b8f5.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="a4a9d78c-d011-4dc9-ab5e-7020c1549ff4">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>privateKeyFile</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="47e963bb-d156-4c1d-a17a-f8985efcdce9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="6f52cf48-641d-45b3-90ea-1a12e1f73312">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3b95066b-712d-4543-b4bd-7ccd58abe53b</refId>
+          </destination>
+          <source>
+            <refId>85b91038-df6f-4a1f-8c3c-427544a15260</refId>
+          </source>
+          <positions>
+            <point>
+              <x>163.0</x>
+              <y>99.0</y>
+            </point>
+            <point>
+              <x>186.0</x>
+              <y>287.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="ce4f60d3-7170-4152-8744-e0c73ad0c6c7">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e695b1f7-9b15-448f-ab10-d2467fbb40d2</refId>
+          </destination>
+          <source>
+            <refId>85b91038-df6f-4a1f-8c3c-427544a15260</refId>
+          </source>
+          <positions>
+            <point>
+              <x>163.0</x>
+              <y>99.0</y>
+            </point>
+            <point>
+              <x>376.0</x>
+              <y>108.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8012aea5-1531-4e51-ae21-81f7abf60ebf</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="e695b1f7-9b15-448f-ab10-d2467fbb40d2">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>326.0</x>
+        <y>74.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="c0a3850c-a249-457d-b0a7-9c9b08616cca">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e695b1f7-9b15-448f-ab10-d2467fbb40d2</refId>
+          </destination>
+          <source>
+            <refId>e695b1f7-9b15-448f-ab10-d2467fbb40d2</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="3b95066b-712d-4543-b4bd-7ccd58abe53b">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>106.0</x>
+        <y>234.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="b9c0d123-7255-4a3b-a60b-f037629b3752">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3b95066b-712d-4543-b4bd-7ccd58abe53b</refId>
+          </destination>
+          <source>
+            <refId>3b95066b-712d-4543-b4bd-7ccd58abe53b</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>85b91038-df6f-4a1f-8c3c-427544a15260</startSteps>
+</flow>
